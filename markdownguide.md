@@ -1,4 +1,4 @@
-1. 마크다운 사용법
+1.마크다운 사용법
 =================
 
 1.1. 헤더
@@ -36,19 +36,19 @@
 1.2. 글씨체
 -----------
 
--굵은 글꼴 (Bold)
+- 굵은 글꼴(Bold)
 
-    I just love**bold text**.
+            I just love**bold text**.
 
-    I just love __bold text__.
+            I just love __bold text__.
 
-    Love**is**bold
+            Love**is**bold
 
 I just love**bold text**.
 
 I just love __bold text__.
 
-Love**is**bold
+Love**is**bold  
 
 
 - 기울임체 (Italic)
@@ -63,7 +63,7 @@ Italicized text is the *cat's meow*.
 
 Italicized text is the _cat's meow_.
 
-A*cat*meow
+A*cat*meow  
 
 
 - 굵은 글꼴 기울임체 (Bold and Italic)
@@ -96,7 +96,7 @@ this is really***very important text.
 
     > Dorothy followed her thorugh many of the beautiful rooms in her castle.
 
-> Dorothy followed her thorugh many of the beautiful rooms in her castle.
+> Dorothy followed her thorugh many of the beautiful rooms in her castle.  
 
     > Dorothy followed her through many of the beautiful rooms in her castle.
     >
@@ -104,7 +104,7 @@ this is really***very important text.
 
 > Dorothy followed her through many of the beautiful rooms in her castle.
 >
-> The witch bade her clean the pots and kettles and sweep the floor and keep the fire fed with wood.
+> The witch bade her clean the pots and kettles and sweep the floor and keep the fire fed with wood.  
 
 
     > Dorothy followed her thorugh many of the beautiful rooms in her castle.
@@ -146,6 +146,8 @@ this is really***very important text.
 3. Third item
 4. Fourth item
 
+목록 안에 목록도 만들 수 있다.  
+
         1. First item
         2. Second item
         3. Third item
@@ -160,12 +162,12 @@ this is really***very important text.
     2. Indented item
 4. Fourth item
 
--순서없는 목록
+- 순서없는 목록
 
-    - First item
-    - Second item
-    - Third item
-    - Fourth item
+            - First item
+            - Second item
+            - Third item
+            - Fourth item
 
 - First item
 - Second item
@@ -187,7 +189,7 @@ this is really***very important text.
     - Indented item
 - Fourth item
 
-숫자가 앞이면 '\'를 붙여준다.
+숫자가 앞이면 "\"를 붙여준다.
 
     - 1968\. A great year!
     - I think 1969 was second best.
@@ -221,7 +223,7 @@ this is really***very important text.
 
 3. Update the title to match the name of your website.
 
-'''를 사용하면 부분적으로 코드블럭을 만들수 있다.
+따옴표를 사용하면 부분적으로 코드블럭을 만들수 있다.
 
     At the command prompt, type `nano`.
 
@@ -249,6 +251,7 @@ _________________
     My favorite search engine is [Duck Duck Go](https://duckduckgo.com).
 
 My favorite search engine is [Duck Duck Go](https://duckduckgo.com).
+   
 
 선택적으로 링크 제목을 추가할 수 있습니다. 링크 위에 마우스를 가져가면 툴팁으로 나타납니다.
 
@@ -256,6 +259,7 @@ My favorite search engine is [Duck Duck Go](https://duckduckgo.com).
 
 My favorite search engine is [Duck Duck Go](https://duckduckgo.com "The best search engine for privacy").
 
+   
 꺽쇠괄호를 사용하면 URL 혹은 이메일주소를 링크할수있다.
 
     <https://www.markdownguide.org>
