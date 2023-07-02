@@ -1,22 +1,48 @@
+1. 마크다운 사용법
+=================
+
+1.1. 헤더
+---------
+
+- 큰제목 : 문서 제목
+
+        Heading level 1
+        ===============
+  
+  Heading level 1
+  ===============
+
+- 작은제목 : 문서 부제목
+
+      Heading level 2
+      ----------------
+
+- 글머리 1~6까지만 지원  
+    
+        # Heading level 1
+        ## Heading level 2
+        ### Heading level 3
+        #### Heading level 4
+        ##### Heading level 5
+        ###### Heading level 6
+
 # Heading level 1
-
 ## Heading level 2
-
 ### Heading level 3
-
 #### Heading level 4
-
 ##### Heading level 5
-
 ###### Heading level 6
 
+1.2. 글씨체
+-----------
 
-Heading level 1
-===============
+-굵은 글꼴 (Bold)
 
-Heading level 2
-===============
+    I just love**bold text**.
 
+    I just love __bold text__.
+
+    Love**is**bold
 
 I just love**bold text**.
 
@@ -25,12 +51,32 @@ I just love __bold text__.
 Love**is**bold
 
 
+- 기울임체 (Italic)
+  
+        Italicized text is the *cat's meow*.
+
+        Italicized text is the _cat's meow_.
+
+        A*cat*meow
+
 Italicized text is the *cat's meow*.
 
 Italicized text is the _cat's meow_.
 
 A*cat*meow
 
+
+- 굵은 글꼴 기울임체 (Bold and Italic)
+
+        This text is ***really important***.
+
+        this text is ___really important___.
+
+        this text is __*really important*__.
+
+        this text is **_really important_**.
+
+        this is really***very important text.
 
 This text is ***really important***.
 
@@ -43,17 +89,39 @@ this text is **_really important_**.
 this is really***very important text.
 
 
+1.3. BlockQuote
+----------------
+
+'>' 블럭인용문자를 이용한다.
+
+    > Dorothy followed her thorugh many of the beautiful rooms in her castle.
+
 > Dorothy followed her thorugh many of the beautiful rooms in her castle.
+
+    > Dorothy followed her through many of the beautiful rooms in her castle.
+    >
+    > The witch bade her clean the pots and kettles and sweep the floor and keep the fire fed with wood.
 
 > Dorothy followed her through many of the beautiful rooms in her castle.
 >
 > The witch bade her clean the pots and kettles and sweep the floor and keep the fire fed with wood.
 
 
+    > Dorothy followed her thorugh many of the beautiful rooms in her castle.
+    >
+    >> The witch bade her clean the pots and kettles and sweep the floor and keep the fire fed with wood.
+
 > Dorothy followed her thorugh many of the beautiful rooms in her castle.
 >
 >> The witch bade her clean the pots and kettles and sweep the floor and keep the fire fed with wood.
 
+
+    > #### The quarterly results look great!
+    >
+    > - Revenue was off the chart.
+    > - Profits were higher than ever.
+    >
+    >  *Everything* is going according to **plan**.
 
 > #### The quarterly results look great!
 >
@@ -62,11 +130,28 @@ this is really***very important text.
 >
 >  *Everything* is going according to **plan**.
 
+1.4. 목록
+---------
+
+- 순서있는 목록(번호)
+순서있는 목록은 숫자와 점을 사용한다.
+
+        1. First item
+        2. Second item
+        3. Third item
+        4. Fourth item
 
 1. First item
 2. Second item
 3. Third item
 4. Fourth item
+
+        1. First item
+        2. Second item
+        3. Third item
+            1. Indented item
+            2. Indented item
+        4. Fourth item
 
 1. First item
 2. Second item
@@ -75,11 +160,25 @@ this is really***very important text.
     2. Indented item
 4. Fourth item
 
+-순서없는 목록
+
+    - First item
+    - Second item
+    - Third item
+    - Fourth item
 
 - First item
 - Second item
 - Third item
 - Fourth item
+
+
+        - First item
+        - Second item
+        - Third item
+            - Indented item
+            - Indented item
+        - Fourth item
 
 - First item
 - Second item
@@ -88,26 +187,29 @@ this is really***very important text.
     - Indented item
 - Fourth item
 
+숫자가 앞이면 '\'를 붙여준다.
+
+    - 1968\. A great year!
+    - I think 1969 was second best.
 
 - 1968\. A great year!
 - I think 1969 was second best.
 
+2.5. 코드
+----------
 
-* This is the first list item.
-* Here's the second list item.
+4개의 공백 또는 하나의 탭으로 들여쓰기를 만나면 변환되기 시작하여 들여쓰지 않은 행을 만날때까지 변환이 게속된다.
+목록 안에 있으면 8개의 공백 또는 2개의 탭이 필요하다.
 
-    I need to add another paragraph below the second list item.
+    1. Open the file.
+    2. Find the following code block on line 21:
 
-* And here's the third list item.
+            <html>
+              <head>
+                <title>Test</title>
+              </head>
 
-
-* This is the first list item.
-* Here's the second list item.
-
-    > A blockquote would look great below the second list item.
-
-* And here's the third list item.
-
+    3. Update the title to match the name of your website.
 
 1. Open the file.
 2. Find the following code block on line 21:
@@ -119,33 +221,20 @@ this is really***very important text.
 
 3. Update the title to match the name of your website.
 
+'''를 사용하면 부분적으로 코드블럭을 만들수 있다.
 
-1. Open the file containing the Linux mascot.
-2. Marvel at its beauty.
-
-    ![Tux, the Linux mascot](/assets/images/tux.png)
-
-3. Close the file.
-
-
-1. First item
-2. Second item
-3. Third item
-    - Indented item
-    - Indented item
-4. Fourth item
-
+    At the command prompt, type `nano`.
 
 At the command prompt, type `nano`.
 
+코드로 나타내려고 하는데 이중 택틱을 사용하면 된다.
+
+        ``Use `code` in your Markdown file.``
+
 ``Use `code` in your Markdown file.``
 
-
-    <html>
-      <head>
-      </head>
-    </html>
-
+2.6. 수평선
+-----------
 
 ***
 
@@ -154,24 +243,48 @@ At the command prompt, type `nano`.
 _________________
 
 
+2.7. 링크
+-----------
+
+    My favorite search engine is [Duck Duck Go](https://duckduckgo.com).
+
 My favorite search engine is [Duck Duck Go](https://duckduckgo.com).
+
+선택적으로 링크 제목을 추가할 수 있습니다. 링크 위에 마우스를 가져가면 툴팁으로 나타납니다.
+
+    My favorite search engine is [Duck Duck Go](https://duckduckgo.com "The best search engine for privacy").
 
 My favorite search engine is [Duck Duck Go](https://duckduckgo.com "The best search engine for privacy").
 
+꺽쇠괄호를 사용하면 URL 혹은 이메일주소를 링크할수있다.
+
+    <https://www.markdownguide.org>
+    
+    <fake@example.com>
 
 <https://www.markdownguide.org>
+
 <fake@example.com>
 
 
-I love supporting the **[EFF](https://eff.org)**.
-This is the *[Markdown Guide](https://www.markdownguide.org)*.
-See the section on [`code`](#code).
+2.8. 이미지
+------------
 
+이미지를 추가하려면 느낌표를 추가하고 괄호 안에 대체 텍스트를 추가한다.
 
-![The San Juan Mountains are beautiful!](/assets/images/san-juan-mountains.jpg "San Juan Mountains")
+    ![임시](https://github.com/yoru4890/TIL/assets/137769028/058b77af-3e19-4469-9ba7-8c87a8c9a987)
+    ![임시](https://github.com/yoru4890/TIL/assets/137769028/058b77af-3e19-4469-9ba7-8c87a8c9a987 "Optional title")
 
+![임시](https://github.com/yoru4890/TIL/assets/137769028/058b77af-3e19-4469-9ba7-8c87a8c9a987)
+![임시](https://github.com/yoru4890/TIL/assets/137769028/058b77af-3e19-4469-9ba7-8c87a8c9a987 "Optional title")
 
-[![An old rock in the desert](/assets/images/shiprock.jpg "Shiprock, New Mexico by Beau Rogers")](https://www.flickr.com/photos/beaurogers/31833779864/in/photolist-Qv3rFw-34mt9F-a9Cmfy-5Ha3Zi-9msKdv-o3hgjr-hWpUte-4WMsJ1-KUQ8N-deshUb-vssBD-6CQci6-8AFCiD-zsJWT-nNfsgB-dPDwZJ-bn9JGn-5HtSXY-6CUhAL-a4UTXB-ugPum-KUPSo-fBLNm-6CUmpy-4WMsc9-8a7D3T-83KJev-6CQ2bK-nNusHJ-a78rQH-nw3NvT-7aq2qf-8wwBso-3nNceh-ugSKP-4mh4kh-bbeeqH-a7biME-q3PtTf-brFpgb-cg38zw-bXMZc-nJPELD-f58Lmo-bXMYG-bz8AAi-bxNtNT-bXMYi-bXMY6-bXMYv)
+2.9. 줄바꿈
+-----------
 
+줄을 바꾸고 싶으면 문장 끝 공백을 2칸이상 해야한다.
 
-\* Without the backslash, this would be a bullet in an unordered list.
+    This is the first line.__
+    And this is the second line.
+
+This is the first line.  
+And this is the second line.
