@@ -199,7 +199,7 @@ this is really***very important text.
 - 1968\. A great year!
 - I think 1969 was second best.
 
-2.5. 코드
+1.5. 코드
 ----------
 
 4개의 공백 또는 하나의 탭으로 들여쓰기를 만나면 변환되기 시작하여 들여쓰지 않은 행을 만날때까지 변환이 게속된다.
@@ -237,7 +237,7 @@ At the command prompt, type `nano`.
 
 ``Use `code` in your Markdown file.``
 
-2.6. 수평선
+1.6. 수평선
 -----------
 
 ***
@@ -247,7 +247,7 @@ At the command prompt, type `nano`.
 _________________
 
 
-2.7. 링크
+1.7. 링크
 -----------
 
     My favorite search engine is [Duck Duck Go](https://duckduckgo.com).
@@ -273,7 +273,7 @@ My favorite search engine is [Duck Duck Go](https://duckduckgo.com "The best sea
 <fake@example.com>
 
 
-2.8. 이미지
+1.8. 이미지
 ------------
 
 이미지를 추가하려면 느낌표를 추가하고 괄호 안에 대체 텍스트를 추가한다.
@@ -284,7 +284,7 @@ My favorite search engine is [Duck Duck Go](https://duckduckgo.com "The best sea
 ![임시](https://github.com/yoru4890/TIL/assets/137769028/058b77af-3e19-4469-9ba7-8c87a8c9a987)
 ![임시](https://github.com/yoru4890/TIL/assets/137769028/058b77af-3e19-4469-9ba7-8c87a8c9a987 "Optional title")
 
-2.9. 줄바꿈
+1.9. 줄바꿈
 -----------
 
 줄을 바꾸고 싶으면 문장 끝 공백을 2칸이상 해야한다.
@@ -294,3 +294,39 @@ My favorite search engine is [Duck Duck Go](https://duckduckgo.com "The best sea
 
 This is the first line.  
 And this is the second line.
+
+1.10. 표 만들기
+-------------
+
+1. 줄의 양 끝의`|`는 생략 가능하다.
+2. 헤더 셀을 구분하는 `---`는 반드시 넣어준다.
+3. `---`에 `:`을 배치하여 해당 칼럼의 정렬이 가능하다.
+   - `:---`:왼쪽 정렬
+   - `:---:`:가운데 정렬
+   - `---:`:오른쪽 정렬
+  
+###예시
+```
+| 값 | 의미 | 기본값 |
+|---|:---:|---:|
+| `static` | 유형(기준) 없음 / 배치 불가능 | `static` |
+| `relative` | 요소 자신을 기준으로 배치 |  |
+| `absolute` | 위치 상 부모(조상)요소를 기준으로 배치 |  |
+| `fixed` | 브라우저 창을 기준으로 배치 |  |
+
+or
+
+ 값 | 의미 | 기본값 
+---|:---:|---:
+ `static` | 유형(기준) 없음 / 배치 불가능 | `static` 
+ `relative` | 요소 자신을 기준으로 배치 |  
+ `absolute` | 위치 상 부모(조상)요소를 기준으로 배치 |  
+ `fixed` | 브라우저 창을 기준으로 배치 |
+```
+| 값 | 의미 | 기본값 |
+|---|:---:|---:|
+| `static` | 유형(기준) 없음 / 배치 불가능 | `static` |
+| `relative` | 요소 자신을 기준으로 배치 |  |
+| `absolute` | 위치 상 부모(조상)요소를 기준으로 배치 |  |
+| `fixed` | 브라우저 창을 기준으로 배치 |  |
+   
