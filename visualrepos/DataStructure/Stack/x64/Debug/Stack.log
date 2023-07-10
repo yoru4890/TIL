@@ -1,3 +1,2 @@
-﻿  main.cpp
-D:\github\TIL\visualrepos\DataStructure\Stack\main.cpp(101,4): warning C4102: 'deafault': 참조되지 않은 레이블입니다.
-  Stack.vcxproj -> D:\github\TIL\visualrepos\DataStructure\x64\Debug\Stack.exe
+﻿  SingleLinkedList.cpp
+D:\github\TIL\visualrepos\DataStructure\Stack\SingleLinkedList.cpp(1,10): fatal  error C1083: 포함 파일을 열 수 없습니다. 'SingleLinkedList.h': No such file or directory
