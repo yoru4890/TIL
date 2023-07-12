@@ -2,16 +2,18 @@
 
 #include "Stack.h"
 
-struct StackList
+struct Stack
 {
-	Stack* pHead{};
-	Stack* pTail{};
+	int count{};
+	Element* pTop{};
 };
 
-void Push(StackList& list, const int num);
+void Push(Stack& stack, const int num);
 
-void Pop(StackList& list);
+void Pop(Stack& stack);
 
-void PrintStack(StackList& list);
+void PrintStack(Stack& stack);
 
-void PrintStackR(Stack* p);
+void PrintStackR(Element* p);
+
+void DeleteAll(Stack& stack);

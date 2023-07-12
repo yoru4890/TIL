@@ -4,14 +4,14 @@
 int main()
 {
 	enum{PUSH, POP, QUIT};
-	StackList myList;
+	Stack myStack;
 
 	int control{};
 	int inputNum{};
 
 	while (true)
 	{
-		std::cout << "0. PUSH\n1. POP\n2. QUIT\n";
+		std::cout << "0. PUSH"<<std::endl<<"1. POP"<<std::endl<<"2. QUIT"<<std::endl;
 
 		std::cin >> control;
 
@@ -20,15 +20,15 @@ int main()
 			case PUSH:
 				std::cout << ">";
 				std::cin >> inputNum;
-				Push(myList, inputNum);
+				Push(myStack, inputNum);
 				std::cout << "------------" << std::endl;
-				PrintStack(myList);
+				PrintStack(myStack);
 				std::cout << "------------" << std::endl;
 				break;
 			case POP:
-				Pop(myList);
+				Pop(myStack);
 				std::cout << "------------" << std::endl;
-				PrintStackR(myList.pHead);
+				PrintStackR(myStack.pHead);
 				std::cout << "------------" << std::endl;
 				break;
 			case QUIT:

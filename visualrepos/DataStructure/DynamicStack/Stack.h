@@ -1,7 +1,7 @@
 #pragma once
 
-struct Stack
+struct Element
 {
 	int num{};
-	Stack* pNext{};
+	Element* pNext{};
 };

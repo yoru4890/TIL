@@ -1,50 +1,38 @@
 #include <iostream>
 #include "DynamicStack.h"
 
-void Push(StackList& list, const int num)
+void Push(Stack& stack, const int num)
 {
-	Stack* element = new Stack;
+	Element* pElement = new Element;
 
-	element->num = num;
+	pElement->num = num;
 
-	if (list.pHead)
-	{
-		element->pNext = list.pHead;
-	}
-	else
-	{
-		list.pTail = element;
-	}
+	pElement->pNext = stack.pTop;
+	stack.pTop = pElement;
+	stack.count++;
 
-	list.pHead = element;
 }
 
-void Pop(StackList& list)
+void Pop(Stack& stack)
 {
-	Stack* p = list.pHead;
-
-	if (list.pHead == list.pTail && p)
+	if (stack.count == 0)
 	{
-		list.pHead = list.pTail = nullptr;
-		delete p;
+		std::cout << "STACK IS EMPTY" << std::endl;
 		return;
 	}
-	else if (p)
-	{
-		list.pHead = p->pNext;
 
-		delete p;
+	Element* pPrevTop = stack.pTop;
 
-		return;
-	}
+	stack.pTop = pPrevTop->pNext;
+	stack.count--;
 	
-	std::cout << "뺄게 없습니다" << std::endl;
+	delete pPrevTop;
 
 }
 
-void PrintStack(StackList& list)
+void PrintStack(Stack& stack)
 {
-	Stack* p = list.pHead;
+	Element* p = stack.pTop;
 
 	while (p)
 	{
@@ -54,7 +42,7 @@ void PrintStack(StackList& list)
 
 }
 
-void PrintStackR(Stack* p)
+void PrintStackR(Element* p)
 {
 	if (!p)
 	{
@@ -67,5 +55,21 @@ void PrintStackR(Stack* p)
 
 	PrintStackR(p);
 
+}
+
+void DeleteAll(Stack& stack)
+{
+	Element* pElement = stack.pTop;
+	Element* pNext{};
+
+	while (pElement)
+	{
+		pNext = pElement->pNext;
+		delete pElement;
+		pElement = pNext;
+	}
+
+	stack.count = 0;
+	stack.pTop = nullptr;
 }
 
