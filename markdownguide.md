@@ -329,4 +329,11 @@ or
 | `relative` | 요소 자신을 기준으로 배치 |  |
 | `absolute` | 위치 상 부모(조상)요소를 기준으로 배치 |  |
 | `fixed` | 브라우저 창을 기준으로 배치 |  |
-   
+
+1.11. 윗첨자와 아랫첨자
+--------------
+
+- 윗첨자는 `<sup>string</sup>` 으로 표현
+- 아랫첨자는 `<sub>string</sub>` 으로 표현
+
+string<sup>string</sup><sub>string</sub>
