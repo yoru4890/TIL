@@ -337,3 +337,20 @@ or
 - 아랫첨자는 `<sub>string</sub>` 으로 표현
 
 string<sup>string</sup><sub>string</sub>
+
+1.12. 접기/펼치기
+------------
+
+```
+<details>
+<summary>접기/펼치기</summary>
+
+접은 내용(ex 소스 코드)
+</details>
+```
+
+<details>
+<summary>접기/펼치기</summary>
+
+접은 내용(ex 소스 코드)
+</details>
