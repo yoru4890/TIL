@@ -1,59 +1,49 @@
 #include <iostream>
+#include "Player.h"
 
-class Galaxy
+class AirConditioner
 {
-	// state - member variable
-private:
-	char modelName[10];
+	int mTemperature;
 
 public:
-	int color;
-	int weight;
+	int GetTemperature() const
+	{
+		return mTemperature;
+	}
 
-	// bahaviour - member function
-	void Phone()
-	{
-		std::cout << "따르릉" << std::endl;
-	}
-	void Message()
-	{
-		std::cout << "메시지" << std::endl;
-	}
 };
 
-class Computer
+class Calendar
 {
-
-public:
-	int price;
-	int color;
-
 private:
-	int power;
-	char mainboardName[10];
-
-	void ShowPower()
-	{
-		std::cout << this->power << std::endl;
-	}
+	int mMonth;
 
 public:
-
-	void ShowPrice()
+	void SetMonth(std::string m)
 	{
-		std::cout << this->price << std::endl;
+		// Dec -> 12
+		mMonth = 12;
 	}
 
+	std::string GetMonth() const
+	{
+		// 1 - jan
+		// 2 - feb
+
+		return "januaray";
+
+	}
 };
 
 int main()
 {
-	// Instantiate (인스턴스화)
-	Galaxy myPhone;
+	Player wolf;
 
-	myPhone.color = 1;
-	myPhone.Phone();
+	wolf.GetAttack();
 
-	Galaxy yourPhone;
-	yourPhone.color = 2;
+	Player::Costume costume = Player::Costume::Summer;
+
+	AirConditioner myHouse;
+	myHouse.GetTemperature();
+
 }
