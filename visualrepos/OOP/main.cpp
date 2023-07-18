@@ -1,49 +1,46 @@
 #include <iostream>
-#include "Player.h"
 
-class AirConditioner
-{
-	int mTemperature;
-
-public:
-	int GetTemperature() const
-	{
-		return mTemperature;
-	}
-
-};
-
-class Calendar
+class Monster
 {
 private:
-	int mMonth;
+	const int mHealth;
+	const int mLevel;
 
 public:
-	void SetMonth(std::string m)
+	// default constructor
+	/*Monster()
 	{
-		// Dec -> 12
-		mMonth = 12;
+		mHealth = 1;
+		mLevel = 1;
+	}*/
+
+	Monster(int level = 0, int health = 0) : mHealth{ health }, mLevel{ level }
+	{
 	}
 
-	std::string GetMonth() const
+	/*Monster()
 	{
-		// 1 - jan
-		// 2 - feb
+		mHealth = mLevel = 0;
+	}
 
-		return "januaray";
+	Monster(int level)
+	{
+		mLevel = level;
+		mHealth = 0;
+	}*/
 
+	void Print()
+	{
+		std::cout << "Health : " << mHealth << std::endl;
+		std::cout << "Level : " << mLevel << std::endl;
 	}
 };
 
 int main()
 {
-	Player wolf;
+	Monster m1(10, 100);
 
-	wolf.GetAttack();
-
-	Player::Costume costume = Player::Costume::Summer;
-
-	AirConditioner myHouse;
-	myHouse.GetTemperature();
+	m1.Print();
 
 }
+

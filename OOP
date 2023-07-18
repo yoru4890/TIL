@@ -330,3 +330,90 @@ const int* const p1 = &x;
 *p1 = 1;
 p1 = &y;
 
+생성자(Constructor) & 소멸자(Destructor)
+
+int myInteger;
+myInteger = 1;
+
+// uniform initialization
+int myInteger{1};
+
+class MyClass
+{
+
+};
+
+생성자
+    객체가 인스턴스화될 때 자동적으로 호출되는 특별한 멤버 함수
+
+        - 클래스와 동일한 이름(대소문자 일치)
+        - 반환 타입이 없음(void도 없어요)
+
+        MyClass()
+        MyClass(int, int)
+
+소멸자
+    인스턴스가 소멸될 때 자동적으로 호출되는 특별한 멤버 함수
+
+        - 클래스와 동일한 이름(대소문자 일치)
+        - 반환 타입이 없음(void도 없어요)
+        - 매개변수도 없음
+        - 클래스 이름 앞에 접두어 ~(물결표, tilde)가 붙음
+
+        ~MyClass();
+
+생성자와 소멸자를 만들었느냐
+
+    - 멤버 변수 초기화
+    - 기본 작업
+
+
+기본 생성자(Default Constructor)
+    매개변수가 없는 생성자
+
+    Implicit Default Constructor
+        생성자를 제공하지 않으면 자동으로 만들어지는 (아무것도 안함)
+
+생성 오버로딩
+
+멤버 초기화 리스트(member initializer list)
+
+    <constructor> : <member-init1>, <member-init2> ...
+    {
+        [body]
+    }
+
+
+
+
+
+
+왜 기본생성자가 있느냐!
+    POD(Plain Old Data) - C언어 스타일의 데이터 int float double struct {}
+        다른 메모리로 혹은 다른 대상(HDD, Network, Graphic...)으로 복사가 쉬움
+
+    그럼 복잡한 데이터 -> C++의 클래스
+        암시적 기본생성자가 존재하면 POD
+            - 다른 생성자가 없음
+
+    class MyClass
+    {
+        int* p;
+
+        MyClass()
+        {
+            p = new int[10000];
+
+            p = (int*)(new Myclass);
+        }
+    }
+
+
+컴파일러 이론
+
+
+int* p1 = new int;
+int* p2 = new int;
+
+delete p2;
+delete p1;
