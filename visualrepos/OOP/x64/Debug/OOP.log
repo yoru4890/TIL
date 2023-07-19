@@ -1,3 +1,2 @@
 ﻿  main.cpp
-D:\github\TIL\visualrepos\OOP\main.cpp(57,12): error C2440: '초기화 중': 'initializer list'에서 'MyClass'(으)로 변환할 수 없습니다.
-D:\github\TIL\visualrepos\OOP\main.cpp(57,12): message : 소스 형식을 가져올 수 있는 생성자가 없거나 생성자 오버로드 확인이 모호합니다.
+  OOP.vcxproj -> D:\github\TIL\visualrepos\OOP\x64\Debug\OOP.exe

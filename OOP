@@ -417,3 +417,49 @@ int* p2 = new int;
 
 delete p2;
 delete p1;
+
+-------------------------------------------
+
+대리 생성자(Delegate Constructor)
+
+    <constructor> : <other-constructor>
+    {
+
+    }
+
+    : 표기를 사용하므로 대리생성자, 멤버 초기화 리스트 중 하나만 사용 가능함
+
+
+소멸자(Destructor)
+
+    메모리를 해제
+
+
+class <이름>
+{
+[접근제한자]:
+    [멤버]
+    .
+    .
+};
+
+접근제한자
+    - private
+    - public
+
+class MyClass
+{
+public:
+    int x;
+public:
+    void Function();
+};
+
+void MyClass::Function()
+{
+    
+}
+
+MyClass c1;
+c1.x;
+c1.Function();

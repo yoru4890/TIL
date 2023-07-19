@@ -24,6 +24,15 @@
     <ClCompile Include="Point2D.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="Date.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="InfoStudent.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="String.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Player.h">
@@ -32,5 +41,17 @@
     <ClInclude Include="Point2D.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="Date.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="InfoStudent.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="String.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
 </Project>

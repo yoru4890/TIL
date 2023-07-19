@@ -1,46 +1,23 @@
-#include <iostream>
+//#include <iostream>
+//#include "InfoStudent.h"
+//
+//int main()
+//{
+//	int studentNum{};
+//
+//	std::cout << "학생 수를 입력해주세요 : ";
+//
+//	std::cin >> studentNum;
+//
+//	InfoStudent* pInfos = new InfoStudent[studentNum];
+//
+//
+//	delete[] pInfos;
+//}
 
-class Monster
-{
-private:
-	const int mHealth;
-	const int mLevel;
-
-public:
-	// default constructor
-	/*Monster()
-	{
-		mHealth = 1;
-		mLevel = 1;
-	}*/
-
-	Monster(int level = 0, int health = 0) : mHealth{ health }, mLevel{ level }
-	{
-	}
-
-	/*Monster()
-	{
-		mHealth = mLevel = 0;
-	}
-
-	Monster(int level)
-	{
-		mLevel = level;
-		mHealth = 0;
-	}*/
-
-	void Print()
-	{
-		std::cout << "Health : " << mHealth << std::endl;
-		std::cout << "Level : " << mLevel << std::endl;
-	}
-};
+#include "String.h"
 
 int main()
 {
-	Monster m1(10, 100);
-
-	m1.Print();
-
+	String s1{ "Hello World" };
 }
-
