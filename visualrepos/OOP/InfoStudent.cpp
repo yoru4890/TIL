@@ -16,13 +16,6 @@ void InfoStudent::InputInfo(const char* name, int num, int score)
 	mScore = score;
 }
 
-void InfoStudent::InputInfo(String name, int num, int score)
-{
-	mName.Strcpy(name);
-	mNum = num;
-	mScore = score;
-}
-
 void InfoStudent::Sort(int studentNum)
 {
 	InfoStudent* p = this;

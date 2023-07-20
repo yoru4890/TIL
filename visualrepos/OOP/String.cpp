@@ -1,35 +1,47 @@
 #include <iostream>
 #include "String.h"
 
-String::String()
+String::String() : startChar{}, endChar{}, stringLength {}
 {
-	startChar = nullptr;
-	stringLength = 0;
 }
 
-String::String(const char* str)
+String::String(const char* str) : stringLength{}
 {
-	int i{};
-
-	while (str[i++] != '\0')
+	while (str[stringLength++] != '\0')
 	{
 	}
 
-	stringLength = i - 1;
+	stringLength--;
 
-	CustomChar* pChar = new CustomChar[stringLength+1];
+	CustomChar* pChar = new CustomChar;
+	CustomChar* pTemp;
+	startChar = pChar;
 
-	for (i = 0; i < stringLength; i++)
+	for (int i = 0; i < stringLength; i++)
 	{
-		pChar[i].character = str[i];
-		pChar[i].pNext = &pChar[i+1];
+		pTemp = pChar;
+		pChar = new CustomChar;
+		pTemp->character = str[i];
+		pTemp->pNext = pChar;
 	}
 
-	pChar[i].character = '\0';
-	pChar[i].pNext = nullptr;
+	pChar->character = '\0';
+	pChar->pNext = nullptr;
+	endChar = pChar;
 
-	startChar = &pChar[0];
+}
 
+String::~String()
+{
+	CustomChar* p = startChar;
+	CustomChar* pNext;
+
+	while (p)
+	{
+		pNext = p->pNext;
+		delete p;
+		p = pNext;
+	}
 }
 
 void String::Print() const
@@ -62,31 +74,34 @@ void String::Strcpy(const char* str)
 
 	if (anotherStringLength > stringLength)
 	{
-		int i{ stringLength };
-		int j{};
-		CustomChar* pChar = new CustomChar[anotherStringLength-stringLength];
+		CustomChar* pChar = new CustomChar;
+		pChar = endChar;
+		CustomChar* pTemp;
 
-		for ( ; i < anotherStringLength - 1; i++, j++)
+		for (int i=stringLength; i < anotherStringLength; i++)
 		{
-			pChar[j].character = str[i+1];
-			pChar[j].pNext = &pChar[j + 1];
+			pTemp = pChar;
+			pChar = new CustomChar{};
+			pTemp->character = str[i];
+			pTemp->pNext = pChar;
 		}
 
-		pChar[j].character = '\0';
-		pChar[j].pNext = nullptr;
+		pChar->character = '\0';
+		pChar->pNext = nullptr;
 
-		for (int j = 0; j < stringLength; j++)
+		endChar = pChar;
+
+		for (int i = 0; i < stringLength; i++)
 		{
-			p->character = str[j];
+			p->character = str[i];
 			p = p->pNext;
 		}
-
-		p->character = str[stringLength];
-		p->pNext = &pChar[0];
 		
 	}
 	else
 	{
+		CustomChar* pNext;
+
 		for (int i = 0; i < anotherStringLength; i++)
 		{
 			p->character = str[i];
@@ -94,19 +109,21 @@ void String::Strcpy(const char* str)
 		}
 
 		p->character = '\0';
+		endChar = p;
+		p = p->pNext;
+		
+		for (int i = anotherStringLength; i < stringLength - anotherStringLength; i++)
+		{
+			pNext = p->pNext;
+			delete p;
+			p = pNext;
+		}
+
+		endChar->pNext = nullptr;
 	}
 
 	stringLength = anotherStringLength;
 	
-}
-
-void String::Strcpy(String& str)
-{
-	int anotherStringLength{ str.StringLength() };
-	startChar = str.startChar;
-
-	stringLength = str.StringLength();
-
 }
 
 bool String::Strcmp(const char* str) const
@@ -139,27 +156,35 @@ bool String::Strcmp(const char* str) const
 	return true;
 }
 
-bool String::Strcmp(String& str) const
+void String::AddStr(const char* str)
 {
-	CustomChar* p1 = startChar;
-	CustomChar* p2 = str.startChar;
+	int anotherStringLength{};
+	CustomChar* p = startChar;
 
-	if (StringLength() != str.StringLength())
+	while (str[anotherStringLength++] != '\0')
 	{
-		return false;
-	}
-	else
-	{
-		for (int i = 0; i < StringLength(); i++)
-		{
-			if (p1->character != p2->character)
-			{
-				return false;
-			}
-			p1 = p1->pNext;
-			p2 = p2->pNext;
-		}
 	}
 
-	return true;
+	anotherStringLength--;
+
+	CustomChar* pChar = new CustomChar;
+	CustomChar* pTemp;
+	pChar = endChar;
+
+	for (int i = 0; i < anotherStringLength; i++)
+	{
+		pTemp = pChar;
+		pChar = new CustomChar{};
+		pTemp->character = str[i];
+		pTemp->pNext = pChar;
+	}
+
+	pChar->character = '\0';
+	pChar->pNext = nullptr;
+
+	endChar = pChar;
+
+	stringLength += anotherStringLength;
 }
+
+

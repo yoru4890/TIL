@@ -1,21 +1,21 @@
 #include <iostream>
-#include "Stack.h"
+#include "String.h"
 
 int main()
 {
-	Stack myStack{};
-
-	myStack.Push(2);
-	myStack.Push(3);
-	myStack.Push(4);
-	myStack.Push(5);
-	myStack.Push(6);
-	myStack.Print();
-	myStack.Pop();
-	myStack.Pop();
-	myStack.Print();
-	std::cout << myStack.Size() << std::endl;
-	std::cout << myStack.Top()->num << std::endl;
+	String s1{ "Hello World" };
+	s1.Print();
+	std::cout << std::endl;
+	std::cout << s1.StringLength() << std::endl;
+	s1.Strcpy("No");
+	s1.Print();
+	s1.Strcpy("YesYes");
+	s1.Print();
+	std::cout << std::endl;
+	std::cout <<s1.Strcmp("YesYessss");
+	s1.AddStr("123");
+	std::cout << std::endl;
+	s1.Print();
 }
 
 

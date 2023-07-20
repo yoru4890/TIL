@@ -12,6 +12,7 @@ class String
 	int stringLength;
 
 	CustomChar* startChar;
+	CustomChar* endChar;
 
 public:
 
@@ -19,17 +20,16 @@ public:
 
 	String(const char* str);
 
+	~String();
+
 	void Print() const;
 
 	int StringLength() const;
 
 	void Strcpy(const char* str);
 
-	void Strcpy(String& str);
-
 	bool Strcmp(const char* str) const;
 
-	bool Strcmp(String& str) const;
-
+	void AddStr(const char* str);
 };
 

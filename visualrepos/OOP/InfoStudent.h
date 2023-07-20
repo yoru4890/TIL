@@ -14,8 +14,6 @@ public:
 
 	void InputInfo(const char* name, int num, int score);
 
-	void InputInfo(String name, int num, int score);
-
 	void Sort(int studentNum);
 
 	void Print();
@@ -27,4 +25,3 @@ public:
 void QuickSort(InfoStudent* p, int start, int end);
 
 void Swap(InfoStudent& a, InfoStudent& b);
-
