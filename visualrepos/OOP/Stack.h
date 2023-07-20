@@ -3,7 +3,8 @@ class Stack
 {
 	class Element
 	{
-		int num;
+	public:
+		int num{};
 		Element* pNext{};
 	};
 
@@ -14,10 +15,16 @@ public:
 
 	Stack();
 
+	~Stack();
+
 	int Size() const;
 
 	void Push(int num);
 
 	void Pop();
+	
+	void Print() const;
+
+	Element* Top() const;
 };
 
