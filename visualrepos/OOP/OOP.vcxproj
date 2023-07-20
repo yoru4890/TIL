@@ -132,6 +132,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Point2D.cpp" />
+    <ClCompile Include="Stack.cpp" />
     <ClCompile Include="String.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -139,6 +140,7 @@
     <ClInclude Include="InfoStudent.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Point2D.h" />
+    <ClInclude Include="Stack.h" />
     <ClInclude Include="String.h" />
   </ItemGroup>
   <ItemGroup>

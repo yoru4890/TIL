@@ -1,41 +1,43 @@
-//#include <iostream>
-//#include "InfoStudent.h"
-//
-//int main()
-//{
-//	int studentNum{};
-//
-//	std::cout << "학생 수를 입력해주세요 : ";
-//
-//	std::cin >> studentNum;
-//
-//	InfoStudent* pInfos = new InfoStudent[studentNum];
-//
-//
-//	delete[] pInfos;
-//}
 #include <iostream>
-#include "String.h"
+#include "infostudent.h"
 
 int main()
-{	
-	String s1{ "Hello World" };
-	s1.Print();
-	std::cout << s1.StringLength() << std::endl;
+{
+	const int NAME_LIMIT{50};
 
-	s1.Strcpy("NO");
-	s1.Print();
-	std::cout << s1.StringLength() << std::endl;
+	int studentnum{};
+	int num{}, score{};
+	char name[NAME_LIMIT]{};
 
-	String s2{ "YESYESYES" };
-	s1.Strcpy(s2);
-	s1.Print();
-	std::cout << s1.StringLength() << std::endl;
+	std::cout << "학생 수를 입력해주세요 : " << std::endl;
 
-	std::cout << s1.Strcmp("YESYES") << std::endl;
-	std::cout << s1.Strcmp("YESYESYES") << std::endl;
-	std::cout << s1.Strcmp(s2) << std::endl;
+	std::cin >> studentnum;
 
-	String s3{ "abcdman" };
-	std::cout << s1.Strcmp(s3) << std::endl;
+	InfoStudent* pInfos = new InfoStudent[studentnum];
+
+	for (int i = 0; i < studentnum; i++)
+	{
+		std::cout << "------------------------" << std::endl;
+		std::cout << "이름 : ";
+		std::cin >> name;
+		std::cout << "번호 : ";
+		std::cin >> num;
+		std::cout << "점수 : ";
+		std::cin >> score;
+		pInfos[i].InputInfo(name, num, score);
+	}
+
+	pInfos->Sort(studentnum);
+
+	for (int i = 0; i < studentnum; i++)
+	{
+		pInfos[i].Print();
+		std::cout << std::endl;
+	}
+
+
+	delete[] pInfos;
 }
+
+
+

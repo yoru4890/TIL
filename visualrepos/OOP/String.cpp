@@ -42,7 +42,6 @@ void String::Print() const
 		p = p->pNext;
 	}
 
-	std::cout << std::endl;
 }
 
 int String::StringLength() const

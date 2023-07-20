@@ -1,17 +1,30 @@
 #pragma once
-#include <string>
+#include "String.h"
 
 class InfoStudent
 {
-	std::string mName;
+	String mName;
 	int mNum;
 	int mScore;
 
 public:
 	InfoStudent();
 
-	InfoStudent(std::string name, int num, int score);
+	InfoStudent(const char* name, int num, int score);
 
-	void InputInfo(std::string name, int num, int score);
+	void InputInfo(const char* name, int num, int score);
+
+	void InputInfo(String name, int num, int score);
+
+	void Sort(int studentNum);
+
+	void Print();
+
+	int GetScore();
+
 };
+
+void QuickSort(InfoStudent* p, int start, int end);
+
+void Swap(InfoStudent& a, InfoStudent& b);
 
