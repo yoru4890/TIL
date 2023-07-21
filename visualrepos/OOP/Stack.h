@@ -1,17 +1,15 @@
 #pragma once
-
-class Element
-{
-public:
-	int num{};
-	Element* pNext{};
-};
-
 class Stack
 {
-	
-	Element* pTop;
-	int size;
+	class Element
+	{
+	public:
+		int mNum{};
+		Element* mPNext{};
+	};
+
+	Element* mPTop;
+	int mSize;
 
 public:
 

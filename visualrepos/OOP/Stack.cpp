@@ -1,7 +1,7 @@
 #include <iostream>
 #include "Stack.h"
 
-Stack::Stack() : pTop{ nullptr }, size{}
+Stack::Stack() : mPTop{ nullptr }, mSize{}
 {
 }
 
@@ -11,43 +11,50 @@ Stack::~Stack()
 
 int Stack::Size() const
 {
-	return size;
+	return mSize;
 }
 
 void Stack::Push(int num)
 {
 	Element* pElement = new Element;
-	pElement->num = num;
-	pElement->pNext = pTop;
+	pElement->mNum = num;
+	pElement->mPNext = mPTop;
 
-	pTop = pElement;
-	size++;
+	mPTop = pElement;
+	mSize++;
 
 }
 
 void Stack::Pop()
 {
-	Element* p{ pTop };
-	Element* pNext{ p->pNext };
+	Element* p{ mPTop };
+	Element* pNext;
 
+	if (!p)
+	{
+		std::cout << "더이상 뺄게 없습니다." << std::endl;
+		return;
+	}
+
+	pNext = p->mPNext;
 	delete p;
 
-	pTop = pNext;
-	size--;
+	mPTop = pNext;
+	mSize--;
 }
 
 void Stack::Print() const
 {
-	Element* p{ pTop };
+	Element* p{ mPTop };
 
 	while (p)
 	{
-		std::cout << p->num << std::endl;
-		p = p->pNext;
+		std::cout << p->mNum << std::endl;
+		p = p->mPNext;
 	}
 }
 
 Stack::Element* Stack::Top() const
 {
-	return pTop;
+	return mPTop;
 }

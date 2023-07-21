@@ -1,21 +1,41 @@
 #include <iostream>
-#include "String.h"
+#include "Stack.h"
 
 int main()
 {
-	String s1{ "Hello World" };
-	s1.Print();
-	std::cout << std::endl;
-	std::cout << s1.StringLength() << std::endl;
-	s1.Strcpy("No");
-	s1.Print();
-	s1.Strcpy("YesYes");
-	s1.Print();
-	std::cout << std::endl;
-	std::cout <<s1.Strcmp("YesYessss");
-	s1.AddStr("123");
-	std::cout << std::endl;
-	s1.Print();
+	Stack myStack;
+	std::cout << myStack.Size() << std::endl;
+	myStack.Print();
+	std::cout << "-------------------" << std::endl;
+	myStack.Push(2);
+	std::cout << myStack.Size() << std::endl;
+	myStack.Print();
+	std::cout << "-------------------" << std::endl;
+	myStack.Push(3);
+	myStack.Push(10);
+	myStack.Push(5);
+	myStack.Push(4);
+	std::cout << myStack.Size() << std::endl;
+	myStack.Print();
+	std::cout << "-------------------" << std::endl;
+	myStack.Pop();
+	myStack.Pop();
+	myStack.Pop();
+	myStack.Pop();
+	std::cout << myStack.Size() << std::endl;
+	myStack.Print();
+	std::cout << "-------------------" << std::endl;
+	myStack.Pop();
+	myStack.Pop();
+	myStack.Pop();
+	std::cout << myStack.Size() << std::endl;
+	myStack.Push(4);
+	std::cout << myStack.Size() << std::endl;
+	myStack.Push(5);
+	myStack.Print();
+	std::cout << myStack.Top()->mNum;
+
+
 }
 
 
