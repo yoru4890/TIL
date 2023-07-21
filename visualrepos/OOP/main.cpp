@@ -1,40 +1,24 @@
 #include <iostream>
-#include "Stack.h"
+#include "Queue.h"
 
 int main()
 {
-	Stack myStack;
-	std::cout << myStack.Size() << std::endl;
-	myStack.Print();
-	std::cout << "-------------------" << std::endl;
-	myStack.Push(2);
-	std::cout << myStack.Size() << std::endl;
-	myStack.Print();
-	std::cout << "-------------------" << std::endl;
-	myStack.Push(3);
-	myStack.Push(10);
-	myStack.Push(5);
-	myStack.Push(4);
-	std::cout << myStack.Size() << std::endl;
-	myStack.Print();
-	std::cout << "-------------------" << std::endl;
-	myStack.Pop();
-	myStack.Pop();
-	myStack.Pop();
-	myStack.Pop();
-	std::cout << myStack.Size() << std::endl;
-	myStack.Print();
-	std::cout << "-------------------" << std::endl;
-	myStack.Pop();
-	myStack.Pop();
-	myStack.Pop();
-	std::cout << myStack.Size() << std::endl;
-	myStack.Push(4);
-	std::cout << myStack.Size() << std::endl;
-	myStack.Push(5);
-	myStack.Print();
-	std::cout << myStack.Top()->mNum;
+	Queue myQueue;
 
+	myQueue.EnQueue(10);
+	std::cout << myQueue.Size() << std::endl;
+	myQueue.EnQueue(20);
+	std::cout << myQueue.Size() << std::endl;
+	myQueue.Print();
+	myQueue.DeQueue();
+	std::cout << std::endl;
+	myQueue.Print();
+	std::cout << myQueue.Size() << std::endl;
+	myQueue.DeQueue();
+	myQueue.DeQueue();
+	std::cout << myQueue.Size() << std::endl;
+	myQueue.EnQueue(100);
+	std::cout << myQueue.First()->mNum << std::endl;
 
 }
 

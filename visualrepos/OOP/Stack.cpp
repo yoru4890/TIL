@@ -7,6 +7,16 @@ Stack::Stack() : mPTop{ nullptr }, mSize{}
 
 Stack::~Stack()
 {
+	Element* p{ mPTop };
+	Element* pNext;
+
+	while (p)
+	{
+		pNext = p->mPNext;
+		delete p;
+		p = pNext;
+	}
+	
 }
 
 int Stack::Size() const
