@@ -1,26 +1,41 @@
 #include <iostream>
-#include "Queue.h"
+
+class Sword; // forward declaration
+
+class Player
+{
+public:
+	void AttackWith(Sword& sword);
+	void A();
+
+};
+
+class Sword
+{
+	friend void Player::AttackWith(Sword& sword);
+
+private:
+	int mDamage;
+
+public:
+	Sword(int dmg) : mDamage{ dmg } {}
+};
+
+// 선언과 정의 분리
+void Player::AttackWith(Sword& sword)
+{
+	std::cout << "칼을 휘둘러" << sword.mDamage << "만큼 피해를 주었다!" << std::endl;
+}
+
 
 int main()
 {
-	Queue myQueue;
+	Sword muramasa{ 10 };
 
-	myQueue.EnQueue(10);
-	std::cout << myQueue.Size() << std::endl;
-	myQueue.EnQueue(20);
-	std::cout << myQueue.Size() << std::endl;
-	myQueue.Print();
-	myQueue.DeQueue();
-	std::cout << std::endl;
-	myQueue.Print();
-	std::cout << myQueue.Size() << std::endl;
-	myQueue.DeQueue();
-	myQueue.DeQueue();
-	std::cout << myQueue.Size() << std::endl;
-	myQueue.EnQueue(100);
-	std::cout << myQueue.First()->mNum << std::endl;
+	Player p1;
+
+	p1.AttackWith(muramasa);
 
 }
-
 
 

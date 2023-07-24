@@ -463,3 +463,42 @@ void MyClass::Function()
 MyClass c1;
 c1.x;
 c1.Function();
+
+---------------------------------------------
+
+const Instnace
+
+---
+
+static member variable (class variable)
+
+static member variable (class function)
+
+---
+
+friend
+    클래스나 함수에 붙여서 친구를 지정
+        - 친구는 나의 모든 멤버(private 포함)을 열람할 수 있음
+            - 내가(정보를 오픈할 쪽) 너를 친구로 지정하는 것만 가능
+            - 쌍방이 아님. A가 B를 친구로 지정해도 A는 B의 친구가 아님
+            - 친구의 친구는 친구가 아님
+
+    friend class
+    friend function
+        - friend global function
+        - friend member function
+
+캡슐화를 무시하면서 까지 friend 가 필요하냐
+
+****연산자 오버로딩(operator overloading)****
+
+- 연산자 = 함수
+
++(Student a, Student b)
+{
+    a.score + b.score;
+}
+
+Student doggy, kitty;
+
+doggy + kitty;
