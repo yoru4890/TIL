@@ -494,6 +494,15 @@ friend
 
 - 연산자 = 함수
 
+    a. 피연산자가 기본 타입이면 기본 연산
+    b. 피연산자가 클래스와 같은 사용자 정의 타입이면
+        - 연산자 오버로딩
+        - 기본 타입으로 시도
+
+    전역 함수 버전의 연산자 오버로딩
+    멤버 함수 버전의 연산자 오버로딩
+        피연산자 중 하나가 this
+
 +(Student a, Student b)
 {
     a.score + b.score;
@@ -502,3 +511,107 @@ friend
 Student doggy, kitty;
 
 doggy + kitty;
+
+void f();
+void f(int x);
+
+op1 > op2
+
+bool > (int x, int y)
+{
+    return x > y;
+}
+
+bool > (Student x, Student y)
+{
+    return x.GetScore() > y.GetScore();
+}
+
+class Student
+{
+    int mScore;
+public:
+    int GetScore();
+}
+
+if( s1 > s2 )
+{
+
+}
+
+-------------------
+
+r-value
+
+익명객체(anonymous object)
+
+void PrintValue(const int& x)
+{
+    std::cout << x << std::endl;
+}
+
+int main()
+{
+    int x { 10 };
+
+    PrintValue(x);
+
+    Printvalue(30);
+
+    PrintValue( x + x );
+}
+
+    std::cout << x + x << std::endl;
+    y = a + b;
+
+class int
+{
+    int();
+    int(int x);
+}
+
+int Square(int x)
+{
+    // return x * x;
+    int temp = x*x;
+    return temp;
+}
+
+int main()
+{
+    int x{2};
+    std::cout << Square(x) <<std::endl;
+}
+
+---------------------
+
+int + ( op1, op2 )
+
+class
+{
+    + (op2)
+    {
+        this + op2;
+    }
+}
+
+c1.+(c2);
+----------------------------
+private :
+    클래스 내부에서 접근 가능 / 외부에서 접근 불가능
+
+    C++ 캡슐화 : 객체 단위가 아니라 클래스 단위
+
+++x; // 증가 후 대입
+x++; // 대입 후 증가
+
+Point2D pt{3,1};
+
+pt.mX = pt.mX + 1;
+pt.mY = pt.mY + 1;
+
+pt = pt + Point2D(1,1);
+
+++pt;
+
+
