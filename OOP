@@ -614,4 +614,162 @@ pt = pt + Point2D(1,1);
 
 ++pt;
 
+-----------------------------
 
+int numbers[10];
+
+
+numbers[0] = 1;
+
+[] ( numbers, 0 )
+
+type casting
+
+명시적 형변환
+
+int myInteger = 1;
+float myFloat = operator int (myInteger);
+
+() - Function Call Operator
+
+    Functor = Function + Object 함수 객체
+
+Stream Operator
+    Point2D pt;
+    std::cout << pt;
+
+    멤버 함수 X (std::cout 클래스 꺼)
+    전역함수만 가능
+
+< Operator Overloading >
+
+MS Rule
+    1. 멤버 함수
+    2. 전역 함수
+        (좌측 피연산자가 우리 클래스가 아닌 경우)
+        std::cout << 1;
+
+        a. Getter / Setter
+        b. friend
+            
+--------------------------------------------
+
+std::cout << a << b << c << std::endl;
+
+// 컴퓨팅사고력 주인공
+class Player
+{
+    Player& MoveForward();
+    Player& TurnLeft();
+    Player& TurnRight();
+};
+
+Player hero;
+hero.MoveForward();
+hero.MoveForward();
+hero.TurnLeft();
+hero.MoveForward();
+
+hero.MoveForward()
+    .MoveForward()
+    .TurnLeft()
+    .MoveForward();
+
+---------------------------------------------------
+
+복사(copy)
+
+int x = 5; // 복사(대입) 초기화
+int x(5);  // 직접 초기화
+int x{5};  // 유니폼 초기화
+
+class MyClass
+{
+private:
+    int mValue;
+
+public:
+    MyClass(int x) : mValue (x)
+    {
+
+    }
+
+};
+
+MyClass x = 5;
+Myclass x(5);
+MyClass x{5};
+
+Complexity
+
+class MyClass
+{
+    int x;
+    int y[1000];
+    int* p;
+
+    void f()
+    {
+        p = new int[10000];
+    }
+}
+
+복사 생성자
+    <class_name> (const <class_name>& )
+
+MyClass x;
+
+MyClass y(x);
+
+class MyClass
+{
+public:
+    MyClass(const MyClass& target) // 복사 생성자
+    {
+
+    }
+}
+
+Shallow Copy vs Deep Copy
+
+class Dog
+{
+
+};
+
+class DogHouse
+{
+    Dog* pOwner;
+
+    DogHouse(const DogHouse& from)
+    {
+        // shallow copy
+        // pOwner = from.pOwner;
+
+        pOwner = new Dog(*from.pOwner);
+    }
+};
+
+Dog happy;
+
+DogHouse home(happy);
+DogHouse home2(home);
+
+
+-------------------------------------------
+
+OOP
+
+1. 클래스
+2. 오브젝트(인스턴스)
+
+3. Encapsulation
+
+4. 상속
+5. 다형성
+
+응용법
+
+STL : Standard Template Library
+
+Modern C++
