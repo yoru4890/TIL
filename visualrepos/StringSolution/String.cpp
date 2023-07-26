@@ -3,8 +3,8 @@
 
 String::String() : mLength{}
 {
-	mString = new char;
-	*mString = '\0';
+	mString = new char[1];
+	mString[0] = '\0';
 }
 
 String::String(int size) : mLength{ size }
@@ -33,9 +33,8 @@ String::String(const char* str) : mLength{}
 	mString[mLength] = '\0';
 }
 
-String::String(const String& str)
+String::String(const String& str) : mLength{ str.mLength }
 {
-	mLength = str.mLength;
 	mString = new char[mLength + 1];
 
 	for (int i = 0; i < mLength; i++)
@@ -48,15 +47,7 @@ String::String(const String& str)
 
 String::~String()
 {
-	if (mLength)
-	{
-		delete[] mString;
-	}
-	else
-	{
-		delete mString;
-	}
-	
+	delete[] mString;
 }
 
 String* String::Print()
@@ -74,7 +65,7 @@ int String::Length()
 String String::operator+(const String& str) const
 {
 	String temp;
-	delete temp.mString;
+	delete[] temp.mString;
 	temp.mLength = mLength + str.mLength;
 
 	temp.mString = new char[temp.mLength+1];
@@ -97,33 +88,7 @@ String String::operator+(const String& str) const
 
 String& String::operator+=(const String& str)
 {
-	String temp(*this);
-
-	if (mLength)
-	{
-		delete[] mString;
-	}
-	else
-	{
-		delete mString;
-	}
-
-	mLength += str.mLength;
-	mString = new char[mLength + 1];
-
-	int i{};
-
-	for (; i < temp.mLength; i++)
-	{
-		mString[i] = temp.mString[i];
-	}
-
-	for (int j = 0; i < mLength; i++, j++)
-	{
-		mString[i] = str.mString[j];
-	}
-
-	mString[mLength] = '\0';
+	*this = *this + str;
 
 	return *this;
 }
@@ -135,26 +100,13 @@ char& String::operator[](int index)
 
 String& String::operator=(const String& str)
 {
-	if (mLength == str.mLength)
+	if (mString == str.mString)
 	{
-		int i = --mLength;
-		int j = str.mLength;
-		mLength++;
-		if (i == j)
-		{
-			return *this;
-		}
+		return *this;
 	}
 
-	if (mLength)
-	{
-		delete[] mString;
-	}
-	else
-	{
-		delete mString;
-	}
-
+	delete[] mString;
+	
 	mLength = str.mLength;
 	mString = new char[mLength + 1];
 
