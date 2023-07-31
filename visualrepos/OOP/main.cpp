@@ -1,40 +1,22 @@
 #include <iostream>
-
-class MyClass
-{
-private:
-    int mValue;
-
-public:
-    MyClass(int x) : mValue(x)
-    {
-        std::cout << "老馆 积己磊" << std::endl;
-    }
-
-    MyClass(const MyClass& target)
-    {
-        mValue = target.mValue;
-        std::cout << "汗荤 积己磊" << std::endl;
-    }
-
-    ~MyClass()
-    {
-        std::cout << "[-]" << std::endl;
-    }
-
-};
-
-
+#include "Cat.h"
+#include "Dog.h"
 
 int main()
 {
-    MyClass c1(1);
-    MyClass c2(c1);
+	Cat nabi;
+	
+	nabi.SetAge(2);
+	nabi.SetBreed(Cat::BREED::TURKISHANGORA);
+	nabi.Sound();
+	nabi.Grooming();
 
-    std::cout << "--------------------" << std::endl;
+	Dog marry;
 
-    MyClass c3(MyClass(1));
-
+	marry.SetAge(2);
+	marry.SetBreed(Dog::BREED::JINDOTGAE);
+	marry.Sound();
+	marry.Bark();
 }
 
 

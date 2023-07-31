@@ -773,3 +773,139 @@ OOP
 STL : Standard Template Library
 
 Modern C++
+
+------------------------------------------
+
+Relationship
+
+박만수
+    나이
+    성별
+    키
+
+    코딩
+    강의
+
+취업반 8기
+게임캔버스
+북평고등학교
+동해시 향우회
+
+is-part-of : Composition
+
+has-a : Aggregation
+
+use-a : Asscociation
+
+is-a : Generalization / Specialization
+
+
+is-part-of 
+    멤버 변수
+
+    엔진 is-part-of 차
+
+    엔진은 차의 구성요소 중 하나
+        - 멤버 변수 중의 하나
+    엔진은 한번에 하나의 차량에만 탑재
+        - Car 인스턴스에 각각 Engine이 존재
+    엔진은 차에 의해 관리
+        - Car 인스턴스가 생성될때, 소멸될 때 각각 Engine 따라가죠
+    엔진은 차량이 뭔지 모름
+        - Engine에서는 Car에 접근할 수단이 없음
+
+    class Engine
+    {
+        int mHorsePower;
+        int mTorque;
+        int mZero100;
+    };
+
+    class car
+    {
+        Engine mEngine;
+
+    };
+
+
+has-a
+    포인터 멤버 변수
+
+    차 has-a 타이어
+
+        타이어는 차의 일부 요소
+        타이어는 한번에 여러 자동차에서 소유할 수 있음
+        타이어는 차량에 의해 관리 되지 않음
+        타이어는 차량을 모름
+
+    class Tire
+    {
+        int mWheelSize;
+    };
+
+    class Car
+    {
+        Tire* mpTire;
+    }
+
+    Tire t1 = new Tire;
+    Car car1;
+    car1.mpTire = t1;
+    //////
+
+    delete t1;
+
+use-a
+
+    멤버 포인터 변수 -> 함수 매개변수 포인터
+
+    운전자 use-a 차
+
+    차는 운전자와 관련이 없음
+    차는 여러 운전자가 사용가능
+    차는 운저자에 의해 관리 될 수도 아닐 수도
+    차는 운전자를 모를, 알수도
+
+    class Driver
+    {
+
+    };
+
+    class Car
+    {
+        //Driver* pDriver;
+
+        void DriveBy(Driver* pDriver);
+    };
+
+is-a
+
+------------------------------------------------
+
+상속(파생) Inheritance/Derivation
+
+Derivation              Inheritance
+Base Class              Parent Class        Super Class
+Derived Class           Child Class         Sub Class
+
+
+C++ 문법
+    class <child-class> : [virtual] [access-modifier] <parent-class>, ...
+    {
+
+    }
+
+    class Cat : public Animal
+    {
+
+    };
+
+
+Parent          public상속          protected상속       private상속
+public          public              protected           private
+protected       protected           protected           private
+private         접근불가            접근불가             접근불가
+
+숲을 보고 나무를 본다 ( Topdown 방식 )
+
+나무를 보고 숲을 본다 ( BottomUp 방식 )
