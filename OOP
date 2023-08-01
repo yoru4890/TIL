@@ -909,3 +909,101 @@ private         접근불가            접근불가             접근불가
 숲을 보고 나무를 본다 ( Topdown 방식 )
 
 나무를 보고 숲을 본다 ( BottomUp 방식 )
+
+
+
+---------------------------------------------------------------------
+
+1   Cat navi;
+// 메모리 준비 (스텍)
+2   class Cat : public Animal
+3   Animal()
+{
+4   // body    
+}
+5   Cat()
+{
+6   // body
+}
+
+7 Cat navi; // 완료
+
+
+class MyClass
+{
+    int mX;
+
+    MyClass() : MyClass(0)
+    {
+
+    }
+
+    MyClass(int x) : mX {x}
+    {
+
+    }
+
+}
+
+----------------------------------------------------------------------
+
+Overriding
+    자식 멤버함수 오버라이딩
+    부모 멤버함수를 자식이 재정의
+    동일한 반환값, 동일한 이름, 동일한 매개변수
+
+Overloading
+    함수의 이름은 같고 매개변수가 다른 함수들
+
+
+다형성 (Polymorphism)
+
+    클래스의 상속과 포인터(+가상함수)에 의해서 만들어지는 개념
+        is-a
+        typecast는 자식 정보가 사라지는 것
+
+가상 함수(virtual function)
+    자식이 오버라이딩할 것을 기대하는 함수
+    함수 연결(bind)을 Runtime으로 보류( 동적으로 할당되거나 하는 메모리 )
+
+Compiletime Binding         Runtime
+Early Binding               Late Binding
+Static Binding              Dynamic Binding
+
+*******
+부모의 소멸자는 가상 소멸자
+
+
+Parent* p = new Child;
+
+p->f();
+
+
+int x;
+
+x = 10;
+
+void f()
+{
+
+}
+
+f();
+
+
+ClassA
+{
+    // virtual
+    f();
+}
+
+ClassB : ClassA
+{
+    // overriding
+    f();
+}
+
+Warrior is-a Player
+Thief is-a Player
+Wizard is-a Player
+Necromancer is-a Player

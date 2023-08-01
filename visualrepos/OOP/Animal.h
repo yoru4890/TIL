@@ -7,7 +7,8 @@ protected:
 
 public:
 	Animal();
-	~Animal();
+	Animal(int age, int weight);
+	virtual ~Animal();
 
 	int GetAge() const;
 	int GetWeight() const;

@@ -1,7 +1,9 @@
 #include <iostream>
 #include "Dog.h"
 
-Dog::Dog() : mBreed{ RETRIEVER }
+Dog::Dog() : 
+    Animal(),
+    mBreed{ RETRIEVER }
 {
     std::cout << "\t[+] Dog" << std::endl;
 }

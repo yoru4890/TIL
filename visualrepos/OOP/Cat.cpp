@@ -1,7 +1,9 @@
 #include <iostream>
 #include "Cat.h"
 
-Cat::Cat() : mBreed{ BREED::KOREANSHORT }
+// member initialize list
+Cat::Cat() : Animal(0, 1),
+    mBreed{ BREED::KOREANSHORT }
 {
     std::cout << "\t[+] Cat" << std::endl;
 }
