@@ -1007,3 +1007,100 @@ Warrior is-a Player
 Thief is-a Player
 Wizard is-a Player
 Necromancer is-a Player
+
+
+--------------------------------------------------------------------------
+
+형변환(type-cast)
+
+    up-cast                         down-cast
+    child->parent                   parent->child
+    암시적 가능(안전)                명시적으로 확인
+    Compile-time                    Run-time
+    빠름                            느림
+    Character* p = new Warrior;     (Warrior*)p
+
+Runtime Type Check : RTC
+    Runtime Type Information : RTTI
+
+C++ typecast operators
+
+    static_cast< new-type >( expression )
+    dynamic_cast< new-type >( expression )
+        클래스의 참조형 혹은 포인터
+
+    reinterpret_cast<>()
+    const_cast<>()
+
+순수 가상 함수(pure virtual function)
+    약속 -> 규칙
+    정의가 없음!
+
+    function-declaration = 0;
+
+    void f() = 0;
+
+추상 클래스 (Abstract Class)
+    ***- 순수 가상함수가 존재
+    - 인스턴스 불가 (멤버함수의 정의가 없음)
+    - 추상 부모 클래스 (Abstract Parent Class)
+
+
+인터페이스(Interface)
+    DVI
+    HDMI
+    USB
+
+    규칙
+    순수가상함수로만 이뤄진 추상 클래스
+
+    class HDMI
+    {
+    public:
+        void Power() = 0;
+        void Display() = 0;
+    }
+    
+
+클래스와 포인터
+
+함수 포인터
+
+    float (*)(int)
+    float (MyClass::*)(int)
+
+namespace
+    식별자(Identifier)들의 개별(분리) 공간
+
+
+// Warrior.h
+namespace Warrior
+{
+    void Swing();
+}
+
+// Props.h
+namespace Props
+{
+    void Swing();
+}
+
+// Warrior.cpp
+using namespace Warrior;
+
+Swing();
+Swing();
+Swing();
+   
+
+using namespace 사용하셔도 됩니다.
+    단!!!!!!!!!
+    헤더에서는 절대 사용하지 마세요.
+
+
+// a.h
+using namespace PROPS;
+
+// main.cpp
+#include "a.h"
+
