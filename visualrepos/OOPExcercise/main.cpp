@@ -1,12 +1,21 @@
 #include <iostream>
 
-using namespace std;
+template <typename T>
+class MyClass
+{
+	T mValue;
+	
+public:
+	void Function(T arg);
+	
+};
 
 int main()
 {
-	cout << "hello" << endl;
+	
+}
 
-	string myString;
-	cin >> myString;
-
+template<typename T>
+void MyClass<T>::Function(T arg)
+{
 }

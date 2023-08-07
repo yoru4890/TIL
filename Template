@@ -1,0 +1,23 @@
+***Template
+
+Generic Programming - template 구문
+
+template <typename T1, typename T2, ...>
+
+template <class C1, class C2, ...> // 위에걸로 다 가능
+
+template function
+
+template class
+
+주의사항
+    1. 타입에 무관한 건 아닙니다. 그 만큼의 코드가 추가되는 것!
+        컴파일러가 컴파일 시간에 코드 생성
+
+    2. 선언과 정의는 같은 파일에 존재해야 합니다.
+
+non-type template parameter
+
+템플릿 사용
+
+    -> STL : STandard Library
