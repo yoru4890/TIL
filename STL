@@ -63,6 +63,12 @@ auto                : 컴파일러가 추론할 수 있는 타입
 
 Lambda Expression : 람다식
 
+알고리즘에 사용할 수 있는 연산
+    Function
+    Lambda Expression
+    Functor     ( operator() overloading )
+    Predicate
+        bool operator () ( )
 
 [2:3]
     2이상 3이하
@@ -80,3 +86,47 @@ Iterator
     0; i<5;
 
 Algorithm
+
+
+------------------------------------------------------------------
+
+시퀀스 컨테이너(Sequence Container)
+    원소들이 순서대로 나열
+    std::array
+        Random Access
+        Fixed Size
+    std::vector
+        Random Access
+        Dynamic Size
+
+    std::forward_list
+        Sequential Access : Random Access X
+        Dynamic Size
+    std::list
+        Double Linked List
+    std::deque
+        Double Ended QUEue (데크)
+        Random Access
+
+연관 컨테이너(Associative Container)
+    원소들이 앞뒤, 상하, 좌우 어디로든 연관성에 따라 연결 되어 있는 방식
+    Binary Search Tree ( BST )
+    Hash
+    std::set
+        고유한 값들이 정렬
+        key 값
+        std::unordered_set
+    std::map
+        key <- value
+        Dictionary
+
+    std::multiset
+        동일한 키가 여러개
+        
+    std::multimap
+
+컨테이너 어댑터(Container Adapter)
+    특수한 목적에 맞게 변형
+    std::stack
+    std::queue
+    std::priority_queue
