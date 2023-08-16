@@ -130,3 +130,16 @@ Algorithm
     std::stack
     std::queue
     std::priority_queue
+
+
+std::vector
+    배열 접근
+    데이터가 적은 경우
+
+std::list   (느려요)
+    중간에서 삭제가 잦은 경우
+    데이터가 적은 경우
+
+std::map
+    검색이 필요
+    데이터가 많은 경우

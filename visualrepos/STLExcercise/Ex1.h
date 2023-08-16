@@ -11,6 +11,7 @@
 #include <set>
 #include <unordered_set>
 #include <map>
+#include <bitset>
 #include <algorithm>
 
 void ArrayEx()
@@ -212,13 +213,37 @@ void SetEx()
 
 void MapEx()
 {
-	std::map<std::string, std::string> operators;
+	std::map<std::string, std::string> myMap;
 
-	operators.insert({ "+", "더하기연산자이면서 이항연산자입니다." });
-	operators.insert({ ">>", "비트 시프트 연산자입니다." });
-	operators.insert({ "new", "동적 메모리 할당 연산자입니다. delete 주의하세요." });
+	myMap.insert({ "+", "더하기연산자이면서 이항연산자입니다." });
+	myMap.insert({ ">>", "비트 시프트 연산자입니다." });
+	myMap.insert({ "new", "동적 메모리 할당 연산자입니다. delete 주의하세요." });
 
-	std::cout << operators["+"] << std::endl;
+	std::cout << myMap["+"] << std::endl;
+
+	myMap["-"] = "빼기 연사자입니다.";
+
+	for (auto e : myMap)
+	{
+
+	}
+
+	std::multimap<int, int> mm;
+
+	mm.insert({ 1, 40 });
+	mm.insert({ 2,30 });
+	mm.insert({ 1,50 });
+
+	for (auto e : mm)
+	{
+		std::cout << e.first << " : " << e.second << std::endl;
+	}
+
+}
+
+void f(int x, ...) // elipse keyword
+{
+
 }
 
 void Ex1()
@@ -230,5 +255,41 @@ void Ex1()
 	DequeEx();*/
 	//StackAndQueue();
 	//SetEx();
-	MapEx();
+	//MapEx();
+
+	
+
+	std::pair<int, int> pt1;
+
+	pt1.first= 1;
+	pt1.second= 1;
+
+	pt1 = { 2,2 };
+
+	pt1 = std::make_pair<int, int>(3, 3);
+
+	std::tuple<int, int, std::string> st1;
+
+	st1 = { 1,100, "Kitty" };
+	st1 = std::make_tuple<int, int, std::string>(2, 50, "Doogy");
+
+	for (int i = 0; i < std::tuple_size<std::tuple<int, int, std::string>>::value; i++)
+	{
+
+	}
+
+	for (int i = 0; i < std::tuple_size<decltype(st1)>::value; i++)
+	{
+		std::get<0>(st1);
+	}
+	std::cout << std::get<0>(st1) << std::endl;
+
+
+	std::bitset<8> flag;
+
+	flag.set(1, true);
+	flag[2] = true;
+
+	std::cout << flag << std::endl;
+
 }

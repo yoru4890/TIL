@@ -23,5 +23,8 @@
     <ClInclude Include="Ex1.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="Ex2.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
