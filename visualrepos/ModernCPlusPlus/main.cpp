@@ -1,9 +1,25 @@
 #include <iostream>
 
+class Warrior
+{
+public:
+	int mHealth;
+	int mAttack;
+
+	Warrior(int h, int a) : mHealth{ h }, mAttack{ a }
+	{
+	}
+};
+
 int main()
 {
-	// Game Developer
-	// 50% : Unreal Engine
-	// 30% : Microsoft DirectX (C#, ...)
-	// 20% : 관성
+	std::unique_ptr<Warrior> spWarrior = std::make_unique<Warrior>(100, 20);
+
+	std::cout << spWarrior->mAttack << std::endl;
+
+	spWarrior.release();	// delete p;
+	spWarrior.reset();		// delete p; p = nullptr;
+
+	Warrior* ptr = spWarrior.get();	// 일반 포인터
 }
+

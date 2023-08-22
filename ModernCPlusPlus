@@ -1,0 +1,150 @@
+C++
+98 : ISO
+03 : 버그 패치
+07 : Technical Reprot 제안
+-------------
+
+Modern C++
+11 : 대격변 
+14 : 버그 수정
+17 : 기능 추가
+20 : 아직도 논의중
+23 
+
+#include <iostream>
+
+int main()
+{
+	// older
+
+	// c++11
+    for(auto e : v)
+}
+
+[=] () mutable throw() -> int
+{
+    // body
+}
+
+https://learn.microsoft.com/ko-kr/cpp/cpp/lvalues-and-rvalues-visual-cpp?view=msvc-170
+
+C++11
+
+    rvalue-reference
+
+    move semantic
+        perfect forwading
+
+int x = 1;
+int y = 2;
+
+x=y;    // copy
+
+MyClass c1;
+MyClass c2;
+
+c1 = c2;
+
+template<class T>
+swap(T& a, T& b)
+{
+    T temp = std::move(a);
+    a = std::move(b);
+    b = std::move(temp);
+}
+
+std::vector<std::string> v;
+std::string str = "example";
+
+v.push_back(std::move(str));
+
+v.push_back(std::move("example"));
+
+move semantic
+
+perfect forwarding
+    완전한 전달
+
+void function(int& a)
+{}
+
+int i =0;
+function(i);
+function(0);
+
+
+constexpr
+constant expression
+
+
+예외 복사, 재던지기
+
+
+inline namespace
+namespace Hello
+{
+    inline namespace Name2
+    {
+
+    }
+}
+
+
+int operator""km(double dist)
+{
+
+}
+
+int main()
+{
+    auto distance = 1.3km;
+}
+
+
+C++11 Class
+    기본 이동 생성자
+    복사 생성자
+
+    MyClass(const MyClass& )    // 복사 생성자
+    MyClass(MyClass&& )         // 이동 생성자
+
+    MyClass& operator=(const MyClass&)  // 복사 대입 연산자
+    MyClass& operator=(MyClass&&)       // 이동 대입 연산자
+
+    대리 생성자( delegating constructor )
+    MyClass() : MyClass(1,1)
+
+    클래스 멤버 초기화
+    class MyClass
+    {
+        int mValue{};
+    }
+
+    override & final
+
+
+    enum class
+
+
+    = default
+    = delete
+
+    class MyClass
+    {
+        MyClass() = default;        // POD
+        MyClass(const MyClass& x) = delete;
+    }
+
+    C++11 언어 기타
+        long long
+        std::static_assert(true);
+
+    C++11 STL
+        스마트 포인터
+            알아서 메모리 관리
+            onwership
+                std::unique_ptr
+                std::shared_ptr
+                std::weak_ptr
+                
+        정규표현식
