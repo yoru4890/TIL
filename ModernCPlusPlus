@@ -139,12 +139,47 @@ C++11 Class
         long long
         std::static_assert(true);
 
-    C++11 STL
-        스마트 포인터
-            알아서 메모리 관리
-            onwership
-                std::unique_ptr
-                std::shared_ptr
-                std::weak_ptr
+C++11 STL
+     스마트 포인터
+         알아서 메모리 관리
+         onwership
+            std::unique_ptr
+            std::shared_ptr
+            std::weak_ptr
+                 std::weak_ptr<> p = resource;
+                 Image* p = resource;
                 
-        정규표현식
+    정규표현식
+
+<아이디>@<주소>
+아이디 : 알파벳 대소문자, 숫자
+주소 : <호스트이름>.<확장자>
+        <호스트이름>.<확장자1>.<확장자2>
+    naver.com
+     korea.go.kr
+
+    동시성
+        Thread
+            Deadlock
+        Asynchronous Function(비동기 함수)
+
+Process                                         Thread
+앱이 실행되어 (Runtime) 메모리에 등록된 상태       한 프로세스 내에서 실행되는 여러 흐름
+자신의 정보를 Context에 저장                      공유 메모리 사용
+OS 제어                                          프로세스가 제어
+Context-Swiching                                Deadloock
+
+Deadlock
+mutual exclusion
+critical section
+
+
+
+#include <header>
+
+-중복
+-순서에 영향
+-std::cout <- iostream
+-하나만 사용할 수 없음
+
+#import iostream.cout
