@@ -8,3 +8,42 @@
     2차 기억 장치 : HDD
         비휘발성
         Sequential ( SSD 제외 )
+
+
+File Stream
+    File Stream Object
+        std::ifstream
+            파일 읽기
+    
+    File Operation
+
+    Close()
+
+    에러 체크
+        goodbit - 연산 성공
+        eofbit - End Of File ( 오류가 아닐 수도 있지만 )
+        failbit - 논리 이슈
+        badbit - 심각한 문제
+
+
+OS별 File System
+    Window File System
+        C:\Users\fighdog\Lesson\File\Data
+        "C:\\Users\\"
+        R"(C:\Users\)"
+        
+    Unix File System
+        Users/fightdog/Lesson/File/Data
+        "Users/fighdog/Lesson/File/Data"
+
+
+path 규칙
+    absolute path 절대 경로
+        D:/github/TIL/visualrepos/FileSystem/Data/SimpleData.txt
+
+    relative path 상대 경로
+        내 위치 : D:/github/TIL/visualrepos/FileSystem
+        /Data/SimpleData.txt
+
+
+    Current Directory ???
