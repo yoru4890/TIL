@@ -47,3 +47,30 @@ path 규칙
 
 
     Current Directory ???
+
+
+Byte Order
+
+    int x = 1;
+    0x 00 00 00 01
+
+    Big Endian                          Little Endian
+    Most Significant Bit (MSB)          Least Significant Bit (LSB)
+    데이터를 순서대로 기록                데이터를 역순으로 기록
+    00 00 00 01                         01 00 00 00
+    산술연산이 느림                      산술연산이 빠름
+    비교연산이 빠름                      비교연산이 느림
+    타입 변환이 어렵다                    타입 변환이 유리
+    프로그래머가 디버깅이 쉬움             디버그가 불편함
+
+    리눅스(서버)                          윈도우
+    안드로이드                            아이폰
+    서버(네트워크 프로토콜)                클라이언트
+
+Comma Seperated Value : CSV 포멧
+
+XML : eXtened Markup Language
+
+JSON : Java Script Object Notation
+
+
