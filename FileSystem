@@ -74,3 +74,126 @@ XML : eXtened Markup Language
 JSON : Java Script Object Notation
 
 
+그래픽
+    bmp jpg png dds
+
+사운드
+    wav mp3 ogg
+
+---------------------------------
+
+기획
+    아이템 테이블
+    퀘스트 테이블
+    몬스터
+    마을
+    월드
+    스킬
+    레벨업
+
+
+표 -> 엑셀
+
+    -> 다른 포멧
+        csv
+
+struct status
+{
+    int level;
+    int hp;
+    int mp;
+};
+
+struct item
+{
+    string name;
+    int gold;
+};
+
+class Monster
+{
+    status s;
+    vector<item> items;
+}
+
+
+DOM ( Document Object Model )
+
+    W3C
+        XML - eXtensible Markup Language
+            HTML - Hyper Text Markup Language
+
+    <monster>
+        <name> 슬라임 </name>
+        <status>
+            <level>10</level>
+            <hp>10</hp>
+            <mp>10</mp>
+        </status>
+        <items>
+            <item>
+                <name>단검</name>
+                <price>100</price>
+            </item>
+            <item>
+                <name>슬라임조각</name>
+                <price>100</price>
+            </item>
+        </items>
+    </monster>
+    
+    ORACLE
+        ***JSON - Javascipt Object Notation
+
+        {
+            "name" : "늑대",
+            "status" : 
+            {
+                "level" : 10,
+                "hp" : 10,
+                "mp" : 10
+            }
+            "items" : 
+            [
+                {"name" : "발톱", "price" : 10},
+                {"name" : "가죽", "price" : 100}
+            ]
+        }
+
+저작권 vs 오픈 소스(Open Source)
+
+    GPL         General Public License          라이센스 및 저작권 명시
+                                                모든 코드를 GPL로 공개
+
+    LGPL        Lessor General Public License   단순 사용은 공개하지 않아도 됨
+
+    BSD         Berkely Software Distribution   미국 정부가 버클리대와 함께 운영하는 오픈소스
+
+    Apache      Apache License                  아파치 소유한 라이센스
+                                                자사제품 보호 조항
+
+    MIT         MIT License
+
+
+    ----------------------------
+
+    WTFPL   WTF Public License
+
+    Beerware
+    Cofeeware
+
+XML
+    declaration
+        <? ~ ?>
+    tag
+        <object> 원소 </object>
+        <object/> : 빈 태그(원소가 없는 태그)
+    element
+        시작 태그 ~ 끝 태그 사이의 내용
+        <text>안녕하세요</text>
+        <text>
+            <image/>
+        </text>
+    property
+        <monster name="WOLF" level="10" hp="10"></monster>
+JSON
