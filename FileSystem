@@ -196,4 +196,25 @@ XML
         </text>
     property
         <monster name="WOLF" level="10" hp="10"></monster>
+
 JSON
+
+JavaScript Object Notation
+
+{
+    "monsters" : [
+        { 
+            "name" : "슬라임",
+            "status" : {
+                "level" : 1,
+                "hp" : 1,
+                "mp" : 1
+            },
+            "items" : [
+                { "name" : "끈적...", "gold" : 1 }
+            ]
+        }, 
+        {},
+        {}
+    ]
+}
