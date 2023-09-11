@@ -1,0 +1,8 @@
+Heap (Data Structure)
+
+    원소들을 Complete BinaryTree에 추가
+
+    MaxHeap
+        부모의 값이 항상 자식들보가 큰 경우
+    MinHeap
+        부모의 값이 항상 자식들보가 작은 경우

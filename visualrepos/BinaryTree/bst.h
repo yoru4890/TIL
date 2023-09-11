@@ -61,13 +61,32 @@ namespace mytree
 			}
 		}
 
+	public:
+		void Visit(Node* node) { std::cout << node->mData << " "; }
+
 		void InOrder(Node* node)
 		{
-			if (!node)return;
+			if (!node) return;
 
 			InOrder(node->mpLeft.get());
-			std::cout << node->mData << ' ';
+			Visit(node);
 			InOrder(node->mpRight.get());
 		}
 	};
+}
+
+void BSTTest()
+{
+	using namespace mytree;
+
+	BinarySearchTree bst;
+
+	auto root = bst.GetRoot();
+	root->mData = 8;
+	bst.Insert(root, 3);
+	bst.Insert(root, 10);
+	bst.Insert(root, 1);
+	bst.Insert(root, 6);
+
+	bst.InOrder(root);
 }
