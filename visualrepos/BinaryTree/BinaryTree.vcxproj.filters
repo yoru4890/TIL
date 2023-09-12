@@ -32,5 +32,8 @@
     <ClInclude Include="quadtree.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="heap.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
