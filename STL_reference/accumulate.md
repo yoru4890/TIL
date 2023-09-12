@@ -1,7 +1,7 @@
 [std::accumulate](https://en.cppreference.com/w/cpp/algorithm/accumulate)
 ================
 
-- `<algorithm>` 안에 있다.
+- `<numeric>` 안에 있다.
 
 - 크게 두가지의 형태를 가지고 있다.
 
