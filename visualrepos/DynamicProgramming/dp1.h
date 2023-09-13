@@ -1,6 +1,10 @@
 #pragma once
+
+// Dynamic Programming °³³ä
+
 #include <iostream>
 #include <map>
+#include <string>
 
 // BRUTE FORCE
 // TC : O(2^n)
@@ -48,4 +52,31 @@ int FindWay(int m, int n)
 
 	// recursive case
 	return FindWay(m - 1, n) + FindWay(m, n - 1);
+}
+
+// TC : O(n) / O(m * n)
+// SC : O(m+n)
+int FindWay(int m, int n, std::map<std::string,int>& memo)
+{
+	std::string key = std::to_string(m) + "," + std::to_string(n);
+
+	if (memo.count(key) == 1)
+	{
+		return memo[key];
+	}
+
+	std::string rkey = std::to_string(n) + "," + std::to_string(m);
+
+	if (memo.count(rkey) == 1)
+	{
+		return memo[rkey];
+	}
+
+	// base case
+	if (m == 1 && n == 1) { return 1; }
+	if (!m || !n) { return 0; }
+
+	// recursive case
+	memo[key] = FindWay(m - 1, n, memo) + FindWay(m, n - 1, memo);
+	return memo[key];
 }
