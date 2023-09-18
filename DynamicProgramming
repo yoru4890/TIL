@@ -104,3 +104,56 @@ EX2)
 출력 : nullptr
 설명
 만들 수 없는 경우는 원소가 없으므로 null을 돌려 줍니다.
+
+
+
+
+문자열의 배열 strings에서 원소들을 조합하여 target이라는 문자열을 만들어 낼 수 있는지
+Decision Problem
+
+제한사항
+- strings는 문자열의 집합으로, 문자열은 빈문자열도 가능합니다.
+- target을 만들기 위해 동일한 원소를 여러번 사용해도 됩니다.
+
+strings = {"hello", "welcome", "world"}
+target = "helloworld"
+
+strings = {"a","b","c","d"}
+target = "abcd"
+
+strings ={"a","b"}
+target = ""
+
+문자열의 배열 strings에서 원소들을 조합하여 target이라는 문자열을 만들어 낼 수 있는 조합의 수
+
+제한사항
+- strings는 문자열의 집합으로, 문자열은 빈문자열도 가능합니다.
+- target을 만들기 위해 동일한 원소를 여러번 사용해도 됩니다.
+
+strings = {"hello", "welcome", "world"}
+target = "helloworld"
+1
+
+strings = {"a","b","c","d"}
+target = "abcd"
+1
+
+strings ={"a","b"}
+target = ""
+
+문자열의 배열 strings에서 원소들을 조합하여 target이라는 문자열을 만들어 낼 수 있는 모든 조합
+
+제한사항
+- strings는 문자열의 집합으로, 문자열은 빈문자열도 가능합니다.
+- target을 만들기 위해 동일한 원소를 여러번 사용해도 됩니다.
+
+strings = {"hello", "welcome", "world"}
+target = "helloworld"
+
+
+strings = {"a","b","c","d"}
+target = "abcd"
+
+
+strings ={"a","b"}
+target = ""
