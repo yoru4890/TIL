@@ -1,43 +1,21 @@
 #include <iostream>
 #include "dp1.h"
 #include "dp2.h"
-
-std::ostream& operator << (std::ostream& os, std::vector<int>* v)
-{
-	if (v == nullptr)
-	{
-		std::cout << "nullptr";
-	}
-	else
-	{
-		std::cout << "{";
-		for (int i = 0; i < v->size(); i++)
-		{
-			std::cout << (*v)[i];
-
-			if (i < v->size() - 1)
-			{
-				std::cout << ",";
-			}
-		}
-		std::cout << "}";
-	}
-	return os;
-}
+#include "dp3.h"
 
 // TC : O(n)
 // SC : O(n)
-int f(int n)
-{
-	if (n <= 1)
-	{
-		return 1;
-	}
+//int f(int n)
+//{
+//	if (n <= 1)
+//	{
+//		return 1;
+//	}
+//
+//	return f(n - 1);
+//}
 
-	return f(n - 1);
-}
-
-int main()
+void dp1()
 {
 	/*std::map<int, int64_t> memo;
 	std::cout << Fibonacci_memo(50, memo) << std::endl;*/
@@ -45,7 +23,10 @@ int main()
 	// std::cout << FindWay(25, 25) << std::endl;
 	/*std::map<std::string, int> memo;
 	std::cout << FindWay(25, 25, memo) << std::endl;*/
+}
 
+void dp2()
+{
 	/*std::vector<int> numbers1{ 2,3,5 };
 	int sum1{ 8 };
 
@@ -76,8 +57,8 @@ int main()
 	memo.clear();
 	std::cout << OptimizeAccumulate(numbers2, sum2, memo).get() << std::endl;*/
 
-	std::vector<std::string> strings = { "ab", "abc","cd","def","abcd" };
-	auto target = "abcdef";
+	/*std::vector<std::string> strings = { "ab", "abc","cd","def","abcd" };
+	auto target = "abcdef";*/
 
 	/*std::cout << std::boolalpha;
 	std::cout << CanGenerate(strings , target) << std::endl;
@@ -85,8 +66,23 @@ int main()
 	std::map<std::string, bool> memo;
 	std::cout << CanGenerate(strings, target, memo) << std::endl;*/
 
-	std::cout << HowManyGenerate(strings, target) << std::endl;
+	/*std::cout << HowManyGenerate(strings, target) << std::endl;
 
 	std::map<std::string, int> memo;
-	std::cout << HowManyGenerate(strings, target, memo) << std::endl;
+	std::cout << HowManyGenerate(strings, target, memo) << std::endl;*/
+
+	/*std::cout << AllCombination(strings, target) << std::endl;
+
+	std::vector<std::string> strings2 = { "ab", "abc","cd","def","abcd","c","ef"};
+	auto target2 = "abcdef";
+
+	std::cout << AllCombination(strings2, target2) << std::endl;*/
+}
+
+int main()
+{
+	using namespace tabulation;
+	std::cout << Fibonacci(50) << std::endl;
+
+	std::cout << FindWays(20, 20) << std::endl;
 }
