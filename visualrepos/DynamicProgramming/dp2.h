@@ -3,31 +3,62 @@
 #include <memory>
 #include <list>
 
+std::ostream& operator << (std::ostream& os, std::vector<int>* v)
+{
+	if (v == nullptr)
+	{
+		std::cout << "nullptr";
+	}
+	else
+	{
+		std::cout << "{";
+		for (int i = 0; i < v->size(); i++)
+		{
+			std::cout << (*v)[i];
+
+			if (i < v->size() - 1)
+			{
+				std::cout << ",";
+			}
+		}
+		std::cout << "}";
+	}
+	return os;
+}
+
+using  string2d = std::list<std::list<std::string>>;
+std::ostream& operator << (std::ostream& os, const string2d& v)
+{
+	std::cout << "{" << std::endl;
+	for (int i{}; auto e1 : v)
+	{
+		std::cout << "    {";
+		for (int j{}; auto e2 : e1)
+		{
+			std::cout << e2;
+			if (j < e1.size() - 1)
+			{
+				std::cout << ",";
+			}
+			j++;
+		}
+		std::cout << "}";
+		if (i < v.size() - 1)
+		{
+			std::cout << ",";
+		}
+		std::cout << std::endl;
+		i++;
+	}
+	std::cout << "}" << std::endl;
+
+	return os;
+}
+
 namespace memoization
 {
 
-	std::ostream& operator << (std::ostream& os, std::vector<int>* v)
-	{
-		if (v == nullptr)
-		{
-			std::cout << "nullptr";
-		}
-		else
-		{
-			std::cout << "{";
-			for (int i = 0; i < v->size(); i++)
-			{
-				std::cout << (*v)[i];
-
-				if (i < v->size() - 1)
-				{
-					std::cout << ",";
-				}
-			}
-			std::cout << "}";
-		}
-		return os;
-	}
+	
 
 	// DynamicProgramming - Memoization
 
@@ -241,7 +272,7 @@ namespace memoization
 		return memo[target];
 	}
 
-	using  string2d = std::list<std::list<std::string>>;
+	
 
 	// TC : O(n^m * m)
 	// SC : O(m^2)
@@ -268,33 +299,5 @@ namespace memoization
 		}
 
 		return v;
-	}
-
-	std::ostream& operator << (std::ostream& os, const string2d& v)
-	{
-		std::cout << "{" << std::endl;
-		for (int i{}; auto e1 : v)
-		{
-			std::cout << "    {";
-			for (int j{}; auto e2 : e1)
-			{
-				std::cout << e2;
-				if (j < e1.size() - 1)
-				{
-					std::cout << ",";
-				}
-				j++;
-			}
-			std::cout << "}";
-			if (i < v.size() - 1)
-			{
-				std::cout << ",";
-			}
-			std::cout << std::endl;
-			i++;
-		}
-		std::cout << "}" << std::endl;
-
-		return os;
 	}
 }

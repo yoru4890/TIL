@@ -85,4 +85,20 @@ int main()
 	std::cout << Fibonacci(50) << std::endl;
 
 	std::cout << FindWays(20, 20) << std::endl;
+
+	std::cout << std::boolalpha;
+	std::cout << CanAccumulate({ 2,3,5 }, 8) << std::endl;
+
+	std::cout << HowAccumulate({ 2,3,5 }, 8).get() << std::endl;
+	std::cout << OptimizeAccumulate({ 2,3,5 }, 8).get() << std::endl;
+	
+	std::cout << CanGenerate({ "ab","abc","cd","def","abcd" }, "abcdef") << std::endl;
+	std::cout << CanGenerate({ "bb","abc" }, "abcdef") << std::endl;
+	std::cout << CanGenerate({ "ab","abc","cd","def","" }, "abcdef") << std::endl;
+
+	std::cout << HowManyGenerate({ "ab","abc","cd","def","abcd","c","d","ef"}, "abcdef") << std::endl;
+	std::cout << HowManyGenerate({ "bb","abc" }, "abcdef") << std::endl;
+	std::cout << HowManyGenerate({ "ab","abc","cd","def" }, "") << std::endl;
+
+	std::cout << AllGenerate({ "ab","abc","cd","def","abcd","c","d","ef" }, "abcdef") << std::endl;
 }
