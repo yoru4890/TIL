@@ -5,13 +5,13 @@
 
 - 크게 2 가지 형태가 있고 execution policy가 추가될 수 있다.
 
-    1. transform(InputIt first1, InputIt last1, OutputIt d_first, UnaryOperation Unary_op);
+    1. OutputIt transform(InputIt first1, InputIt last1, OutputIt d_first, UnaryOperation Unary_op);
     
-    2. transform(ExcutionPolicy&& policy, ForwardIt1 first1, ForwardIt1 last1, ForwardIt2, d_first, UnaryOperation unary_op);
+    2. ForwardIt2 transform(ExcutionPolicy&& policy, ForwardIt1 first1, ForwardIt1 last1, ForwardIt2, d_first, UnaryOperation unary_op);
 
-    3. transform(InputIt1 first1, InputIt1 last1, InputIt2 first2, OutputIt d_first, BinaryOperation binary_op);
+    3. OutputIt transform(InputIt1 first1, InputIt1 last1, InputIt2 first2, OutputIt d_first, BinaryOperation binary_op);
 
-    4. transform(ExcutionPolicy&& policy, ForwardIt1 first1, ForwardIt1 last1, ForwardIt2, d_first, BinaryOperation binary_op);
+    4. ForwardIt3 transform(ExcutionPolicy&& policy, ForwardIt1 first1, ForwardIt1 last1, ForwardIt2, first2, ForwardIt3 d_first, BinaryOperation binary_op);
 
 ```cpp
 template<class InputIt, class OutputIt, class UnaryOperation>

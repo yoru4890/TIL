@@ -2,9 +2,9 @@
 ================
 
 - `<cmath>` 안에 있다.
-- std::pow(float base, float exp);
-- std::pow(double base, double exp);
-- std::pow(long double base, long double exp);
+- float std::pow(float base, float exp);
+- double std::pow(double base, double exp);
+- long double std::pow(long double base, long double exp);
 
 예외의 경우를 제외하고 base^exp를 반환한다.
 

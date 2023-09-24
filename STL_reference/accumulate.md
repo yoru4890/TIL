@@ -5,9 +5,9 @@
 
 - 크게 두가지의 형태를 가지고 있다.
 
-    1. accumulate( InputIt 처음, InputIt 마지막, 타입 요소);
+    1. T accumulate( InputIt 처음, InputIt 마지막, T 타입 요소);
 
-    2. accumulate( InputIt 처음, InputIt 마지막, 타입 요소, 이항연산);
+    2. T accumulate( InputIt 처음, InputIt 마지막, T 타입 요소, 이항연산);
 
 
 ```cpp
