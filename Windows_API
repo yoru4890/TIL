@@ -1,0 +1,92 @@
+API : Application Programming Interface
+
+Interface
+    abstract class
+        pure virtual member function
+
+
+class Parent
+{
+    virtual void f() = 0;
+    virtual void g() = 0;
+};
+
+Windows API
+    Win16   - 80186, 80286
+    Win32   - 80386 486 586 (pentium)
+        Win32s
+    Win32 for 64bit
+
+    C 언어
+
+MFC : Microsoft Foundation Class library
+    C++ 언어
+    비주얼편집기, 나름 스마트포인터
+    어려워요. 마이크로소프트도 포기
+    (차라리 visual basic, 2014년 중단)
+
+ 별도) WTL : Windows Template Library
+    MFC가 워낙 그지 -> 사내에서 별도의 라이브러리를 만들어서 사용
+    오픈소스 -> 여전히 업데이트
+
+Windows Form
+    .NET 환경
+    MFC 대체자 (2014년 중단)
+
+WPF : Windows Presentation Platform
+    최초의 하드웨어 가속
+    게임 개발자 흥미 X
+
+Window RT (Runtime)
+    윈도우 8, 윈도우 폰
+
+UWP : Universal Windows Platform
+    윈도우 10
+    윈도우 스토어에 등록할 앱은 UWP로 만드세요
+
+----------------------------------------------------
+개발자들이 싫어함
+
+Unix Linux - Text GUI
+Apple - 3번 변경 (하드웨어)
+
+우리 수업 : Win32 API
+
+SAL : Source code Annotation Language
+
+// 입력 ?
+// 출력 ?
+void f(_Inout_ int* p)
+{
+
+}
+
+HINSTANCE
+    Handle of Insrance
+    Pointer to Instance
+
+    Instance
+
+LPSTR
+    Long Pointer (to null-terminated) STRing
+    char*
+
+HWND
+    Handle of WiNDow
+
+
+LPCTSTR
+    Long Pointer Constant TCHAR String
+
+UINT
+    Unsigned INTeger
+
+DWORD
+    Double Word - 4byte(32bit) : int
+WORD
+    16bit : short
+LPVOID
+    Long pointer to void
+
+헝가리안 표기법
+    타입의 약자를 접두어로 표기
