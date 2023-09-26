@@ -90,3 +90,66 @@ LPVOID
 
 헝가리안 표기법
     타입의 약자를 접두어로 표기
+
+
+LRESULT : long Result
+        pointer
+
+CALLBACK : 콜백함수 
+        ( 내가 부르는게 아니다 )
+        등록해놓으면 운영체제가 알아서 불러요
+
+WPARAM : WORD Parameter
+LPARAM : Long ptr Parameter
+
+닫기
+    닫기 버튼을 누르면 WM_CLOSE
+        DestroyWindow
+    윈도우가 사라질 때 WM_DESTROY
+        WM_QUIT 발생
+
+    while( GetMessage() )
+        WM_QUIT 메시지 = false
+
+
+1. 윈도우 클래스 등록
+    RegisterClass
+
+2. 윈도우 생성
+    CreateWindow
+
+3. 메시지 처리
+    while(GetMessage)
+
+4. 윈도우 프로시져
+    LRESULT 이름(HWND ...)
+
+
+Graphics
+
+GDI : Graphics Device Interface
+
+WinG : Windows for Gaming
+    x
+
+DirectDraw
+    하드웨어 가속(Hardware Accelerate)
+    x
+
+GDI+
+    x
+
+Direct2D
+
+DirectX
+    Direct2D
+    Direct3D
+    ..
+
+
+GDI : Graphics Device Interface
+
+    BRUSH
+    PEN
+    도형
+    
