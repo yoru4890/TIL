@@ -152,4 +152,29 @@ GDI : Graphics Device Interface
     BRUSH
     PEN
     도형
-    
+
+Event Driven System
+    Callback Function
+
+void OnClick()
+{
+
+}
+
+int main()
+{
+    Register(OnClick);
+}
+
+GDI
+    Device Context
+
+Win32 API
+GID
+-> C언어
+
+GDI+
+    C++ 언어
+    Windows XP
+
+Solitaire
