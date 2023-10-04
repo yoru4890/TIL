@@ -178,3 +178,20 @@ GDI+
     Windows XP
 
 Solitaire
+
+카드
+    state
+    뒷면 그림
+    옆면 그림
+
+    behaviour
+    뒤집기
+
+
+Game
+    배경
+    카드[40]
+    셔플
+    정답 - 삭제 / 뒤집기
+
+셔플 - 카드 섞기

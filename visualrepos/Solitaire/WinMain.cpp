@@ -1,7 +1,6 @@
 #include <Windows.h>
 #include <gdiplus.h>
-#include <list>
-#include "Card.h"
+#include "GameLogic.h"
 
 #pragma comment (lib, "Gdiplus.lib")
 
@@ -12,21 +11,13 @@ const wchar_t gClassName[] = L"SolitaireWindowClass";
 LRESULT CALLBACK WindowProc(HWND hwnd, UINT message, WPARAM wparam, LPARAM lparam);
 
 // Test
-std::list<solitaire::Card> myDeck;
+solitaire::GameLogic gLogic;
 
 int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _In_ LPSTR lpCmdLine, _In_ int nShowCmd)
 {
 	GdiplusStartupInput gsi;
 	ULONG_PTR token;
 	GdiplusStartup(&token, &gsi, nullptr);
-
-	// Test
-	myDeck.push_back(solitaire::Card(solitaire::Type::Bear, 0, 0));
-	myDeck.push_back(solitaire::Card(solitaire::Type::Dragon, 150, 0));
-	myDeck.push_back(solitaire::Card(solitaire::Type::Wolf, 300, 0));
-	myDeck.push_back(solitaire::Card(solitaire::Type::Bear, 0, 150));
-	myDeck.push_back(solitaire::Card(solitaire::Type::Dragon, 150, 150));
-	myDeck.push_back(solitaire::Card(solitaire::Type::Wolf, 300, 150));
 
 	WNDCLASSEX wc;
 	ZeroMemory(&wc, sizeof(WNDCLASSEX));
@@ -45,8 +36,8 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 	}
 
 	RECT wr = { 0,0,1024,768 };
-	AdjustWindowRect(&wr, WS_OVERLAPPEDWINDOW, FALSE);
-	HWND hwnd = CreateWindowEx(0, gClassName, L"Solitaire Game", WS_OVERLAPPEDWINDOW, CW_USEDEFAULT, CW_USEDEFAULT, 
+	AdjustWindowRect(&wr, WS_OVERLAPPED | WS_SYSMENU, FALSE);
+	HWND hwnd = CreateWindowEx(0, gClassName, L"Solitaire Game", WS_OVERLAPPED | WS_SYSMENU, CW_USEDEFAULT, CW_USEDEFAULT, 
 								wr.right - wr.left, wr.bottom - wr.top, NULL, NULL, hInstance, NULL);
 
 	if (hwnd == nullptr)
@@ -54,6 +45,8 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 		MessageBox(nullptr, L"Failed to create!", L"Error", MB_OK);
 		return 0;
 	}
+
+	gLogic.Init(hwnd);
 
 	ShowWindow(hwnd, nShowCmd);
 	UpdateWindow(hwnd);
@@ -65,7 +58,7 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 		DispatchMessage(&msg);
 	}
 
-	myDeck.clear();
+	gLogic.Release();
 
 	GdiplusShutdown(token);
 	return static_cast<int>(msg.wParam);
@@ -78,14 +71,7 @@ void OnPaint(HWND hwnd)
 
 	Graphics graphics(hdc);
 	
-	// test
-
-	for (auto& card : myDeck)
-	{
-		card.Flip(true);
-		card.Draw(graphics);
-	}
-
+	gLogic.Draw(graphics);
 
 	EndPaint(hwnd, &ps);
 }
@@ -94,6 +80,9 @@ LRESULT WindowProc(HWND hwnd, UINT message, WPARAM wparam, LPARAM lparam)
 {
 	switch (message)
 	{
+		case WM_LBUTTONUP:
+			gLogic.OnClick(LOWORD(lparam), HIWORD(lparam));
+			break;
 		case WM_PAINT:
 			OnPaint(hwnd);
 			break;
