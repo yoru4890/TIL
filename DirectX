@@ -1,0 +1,101 @@
+DirectX
+    종합 멀티미디어 라이브러리
+    Direct : 하드웨어에 직접, 성능을 100% 발휘
+
+    DirectX 7 : 2D & 3D
+    DirectX 9 : 2002 ~ 2020년대까지 사용
+
+    DirectX 11
+    DirectX 12
+
+    -----------------------------------------------
+
+    DXGI
+    Direct2D
+    Direct3D
+    XInput
+    DirectMusic
+    DirectAudio
+    DirectWrite
+    DirectCompute
+
+    기본 DirectX SDK는 C언어입니다.
+    COM 개념도 C언어입니다.
+
+OpenGL
+
+    Vulcan
+
+    Metal
+
+SDK : Software Development Kit
+
+    API : Application Programming Interface
+
+Factory 공산품을 생산하는 공장
+
+int main()
+{
+    Character* p;
+
+    switch(job)
+    {
+        case WARRIOR:
+            p = new Warrior(단검);
+            break;
+        case WIZARD:
+            p = new Wizard(지팡이, 파이어볼);
+            break;
+
+        case MONK:
+            p = new Monk();
+            break;
+    }
+}
+
+// Factory Pattern
+Factory *f;
+
+f->CreateWarrior();
+f->CreateWizard();
+f->CreateMonk();
+
+f->Create(MONK);
+f->Create(WIZARD, 지팡이, 파이어볼);
+
+
+int** pp;
+
+Swap(int* p1, int* p2){}
+
+int x{2};
+int y{3};
+Swap(&x,&y);
+
+Create(int* p)
+{
+    p = new int[3];
+}
+
+int* array;
+Create(array);
+
+위에는 Call by value이다.
+
+Create(int** p)
+{
+    p = new int[3];
+}
+
+int* array;
+Create(&array);
+
+int x, int y;
+Swap(&x,&y);
+
+void Swap(int*, int*)
+
+int* x, int* y;
+Swap(&x,&y);
+
+void Swap(int**, int**);
