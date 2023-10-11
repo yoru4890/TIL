@@ -99,3 +99,46 @@ int* x, int* y;
 Swap(&x,&y);
 
 void Swap(int**, int**);
+
+OOP
+
+class Direct2DGame
+{
+    윈도우 만들어주고
+    윈도우 메시지 처리
+    DirectX 처리
+}
+
+Library
+    선언(.h)과 정의(.cpp - .lib)
+    zip Library
+
+API
+    Application Programming Interface
+    앱을 만들 때 사용하는 모든 기능
+    앱 <=> 운영체제
+
+SDK
+    Software Development Kit
+    API를 포함한 기타 여러 유틸리티의 묶음
+
+Framework
+    위에서 설명한 모든 도구들의 모음
+    & 규칙
+
+
+COM 인터페이스 포인터
+-> 스마트포인터 windows 7
+
+ComPtr : std::shared_ptr
+
+    .GetAddressOf()
+    .Get()
+
+
+winmain()
+{
+    myFramework.Init();
+    myFramework.run();
+    myFramework.Release();
+}
