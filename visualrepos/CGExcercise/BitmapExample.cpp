@@ -1,3 +1,5 @@
+#include <algorithm>
+#include <cmath>
 #include "BitmapExample.h"
 
 HRESULT BitmapExample::CreateDeviceResources()
@@ -32,8 +34,8 @@ void BitmapExample::Render()
 
     ClearBuffer(D2D1::ColorF(D2D1::ColorF::LightPink));
 
-    DrawRectangle(0, 0, 100, 100, D2D1::ColorF::Red);
-    DrawRectangle(50, 50, 100, 100, D2D1::ColorF(D2D1::ColorF::Green, 0.65f));
+    DrawCircle(100, 100, 100, D2D1::ColorF::Green);
+    DrawLine(100, 100, 400, 400, D2D1::ColorF::Blue);
 
     PresentBuffer();
 
@@ -71,9 +73,39 @@ void BitmapExample::DrawRectangle(int left, int top, int w, int h, D2D1::ColorF 
     }
 }
 
-// FilllRect
+void BitmapExample::DrawCircle(int x, int y, int r, D2D1::ColorF color)
+{
+    double angle{};
+    while (angle < 360)
+    {
+        int nx{ x + static_cast<int>(r * cos(angle)) };
+        int ny{ y + static_cast<int>(r * sin(angle)) };
 
+        DrawPixel(nx, ny, color);
+        angle += 0.05;
+    }
+}
 
+void BitmapExample::DrawLine(int x, int y, int x2, int y2, D2D1::ColorF color)
+{
+    if (x == x2)
+    {
+        if (y > y2) { std::swap(y, y2); }
+        for (int i = y; i <= y2; i++)
+        {
+            DrawPixel(x, i, color);
+        }
+    }
+    else
+    {
+        double slope{ static_cast<double>(y2 - y) / (x2 - x) };
+        if (x > x2) { std::swap(x, x2); }
+        for (int i = x; i <= x2; i++)
+        {
+            DrawPixel(i, static_cast<int>((i - x) * slope + y), color);
+        }
+    }
+}
 
 void BitmapExample::ClearBuffer(D2D1::ColorF color)
 {

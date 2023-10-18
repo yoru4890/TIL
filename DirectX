@@ -184,3 +184,41 @@ Device Lost
 
 
 Bitmap Graphics
+
+
+Windows Imaging Component ( WIC )
+    BMP
+    GIF
+    ICO
+    JPG
+    PNG
+    TIF
+    DDS
+    Windows Media Photo
+
+    1. 디코더 생성
+    2. 프레임 획득
+    3. Converter로 데이터를 변환 ( 픽셀포멧 BGRA )
+    4. 위 데이터로 IBITMAP 생성
+
+메타(meta)
+
+    상위 - 메타버스
+    트렌드 - 요즘 메타에는 원딜이 짱이지
+
+    단어 의미 meta : about
+    metadata
+
+
+MyFolder
+    1.txt
+    2.doc
+    3.PNG
+    ,.
+    .
+    .
+    .
+
+설명.txt
+    MyFolder에는 수업자료, 그림 등이 있음
+    1.txt : 1010 자료
