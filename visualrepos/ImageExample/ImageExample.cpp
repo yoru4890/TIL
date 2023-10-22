@@ -136,7 +136,7 @@ HRESULT ImageExample::CreateDeviceResources()
 	/*HRESULT hr = LoadBMP(L"Images/32.bmp", mspBitmap.ReleaseAndGetAddressOf());
 	ThrowIfFailed(hr);*/
 
-	HRESULT hr = LoadWIC(L"Images/32.bmp", mspBitmap.ReleaseAndGetAddressOf());
+	HRESULT hr = LoadWIC(L"Images/maincharacter.png", mspBitmap.ReleaseAndGetAddressOf());
 	ThrowIfFailed(hr);
 
 	return S_OK;
