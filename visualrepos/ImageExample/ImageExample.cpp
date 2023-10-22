@@ -163,9 +163,32 @@ void ImageExample::Render()
 	mspRenderTarget->BeginDraw();
 	mspRenderTarget->Clear(D2D1::ColorF(0.0f, 0.2f, 0.4f, 1.0f));
 
+	/*float x = 150.0f;
+	float y = 50.0f;
+	float rotationAngleInDegrees = 45.0f;
+	float scaleX = 2.0f;
+	float scaleY = 2.0f;
+
+	D2D1_SIZE_F imageSize = mspBitmap->GetSize();
+	D2D1_POINT_2F rotationCenter = D2D1::Point2F(imageSize.width / 2.0f, imageSize.height / 2.0f);
+
+	D2D1_MATRIX_3X2_F transformMatrix = D2D1::Matrix3x2F::Translation(x, y) * 
+										D2D1::Matrix3x2F::Rotation(rotationAngleInDegrees, rotationCenter) * 
+										D2D1::Matrix3x2F::Scale(scaleX, scaleY);
+
+	mspRenderTarget->SetTransform(transformMatrix);
+
+	D2D1_RECT_F destinationRect = D2D1::RectF(x, y, x + imageSize.width, y + imageSize.height);
+
+	mspRenderTarget->DrawBitmap(mspBitmap.Get(), destinationRect);
+
+	
+	mspRenderTarget->SetTransform(D2D1::Matrix3x2F::Identity());*/
+
 	mspRenderTarget->DrawBitmap(mspBitmap.Get());
 
 	HRESULT hr = mspRenderTarget->EndDraw();
+
 
 	if (hr == D2DERR_RECREATE_TARGET)
 	{
