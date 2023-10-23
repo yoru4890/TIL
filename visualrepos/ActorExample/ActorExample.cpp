@@ -8,6 +8,10 @@ HRESULT ActorExample::Initialize(HINSTANCE hInstance, LPCWSTR title, UINT width,
     ThrowIfFailed(hr);
 
     mspBackground = std::make_unique<Actor>(this, L"Images/back1.png", 0.0f,0.0f,1.0f);
+   /* for (int i = 0; i < 10; i++)
+    {
+        mspBugs.push_back(std::make_unique<Actor>(this, L"Images/bug1_1.png", 100.0f+i*20.0f, 100.0f+i*20.0f));
+    }*/
     mspBug = std::make_unique<Actor>(this, L"Images/bug1_1.png", 100.0f, 100.0f);
 
     return S_OK;
@@ -15,6 +19,10 @@ HRESULT ActorExample::Initialize(HINSTANCE hInstance, LPCWSTR title, UINT width,
 
 void ActorExample::Release()
 {
+    /*for (int i = 0; i < 10; i++)
+    {
+        mspBugs[i].reset();
+    }*/
     mspBug.reset();
     mspBackground.reset();
 
@@ -27,6 +35,10 @@ void ActorExample::Render()
     mspRenderTarget->Clear(D2D1::ColorF(0.0f, 0.2f, 0.4f, 1.0f));
 
     mspBackground->Draw();
+    /*for (int i = 0; i < 10; i++)
+    {
+        mspBugs[i]->Draw();
+    }*/
     mspBug->Draw();
 
 
