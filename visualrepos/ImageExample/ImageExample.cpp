@@ -182,7 +182,7 @@ void ImageExample::Render()
 
 	mspRenderTarget->DrawBitmap(mspBitmap.Get(), destinationRect);
 
-	
+
 	mspRenderTarget->SetTransform(D2D1::Matrix3x2F::Identity());*/
 
 	mspRenderTarget->DrawBitmap(mspBitmap.Get());

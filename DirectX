@@ -222,3 +222,82 @@ MyFolder
 설명.txt
     MyFolder에는 수업자료, 그림 등이 있음
     1.txt : 1010 자료
+
+- 흑백 ( 1 )
+- CGA ( 16 )
+  EGA ( 256 )
+
+- VGA ( True Color )
+      16bit Color
+      32bit Color
+
+
+팔레트
+    0 - 검은색
+    1 - 흰색
+    2 - 빨간
+    ...
+    255 - 핑크
+
+BGRA 255 0 0 255
+PAL 0 1 2 3 
+
+디더링
+
+
+threshold
+
+
+Sprite
+
+    - 공통 기능 ( 부모 )
+        ID2D1Bitmap (그림파일 WIC)
+        x
+        y
+        alpha
+
+    WIC, Bitmap 생성
+
+
+Actor
+
+    IBitmap
+    x
+    y
+    color.a
+
+
+    object
+    캐릭터
+        본체
+        투구
+        칼
+
+Character
+
+Sprite
+
+
+WIC
+    image loading
+    ->IBitmap
+
+
+범위 지정 연산자
+Scope Resolution Operator
+
+
+int Red = 0;
+
+namespace MyColor
+{
+    int Red = 0;
+}
+
+MyColor::Red = 0;
+
+::Red = 1;
+
+using namespace MyColor;
+::Red = 1;
+MyColor::Red = 1;
