@@ -301,3 +301,42 @@ MyColor::Red = 0;
 using namespace MyColor;
 ::Red = 1;
 MyColor::Red = 1;
+
+
+
+Design Pattern
+    - Factory Pattern
+    - Singleton Pattern
+
+
+Singleton
+    오직 하나의 인스턴스만 존재하는 객체
+        - 생성자가 여러번 호출되어도 객체는 하나
+
+
+class Singleton
+{
+public:
+    static Singleton& Instance()
+    {
+        static Singleton instance;
+
+        return instance;
+    }
+private:
+    Singleton();
+    Singleton(const Singleton&);
+    void operator = (const Singleton&);
+
+public:
+    void DoSomething();
+};
+
+Singleton::Instance().DoSomething();
+Singleton::Instance().DoSomething();
+
+
+map
+    1.png가 존재하는냐?
+    없으면 -> 1.png 로딩
+    있으면 -> 기존의 포인터 반환
