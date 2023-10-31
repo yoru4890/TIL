@@ -15,5 +15,7 @@ public:
 	virtual HRESULT Initialize(HINSTANCE hInstance, LPCWSTR title = L"BuggyHouse", UINT width = 1024, UINT height = 768) override;
 	virtual void Render() override;
 	virtual void Release() override;
+
+	void CheckBugs();
 };
 

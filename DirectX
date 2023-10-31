@@ -343,3 +343,19 @@ map
 
 
 벌레를 게임답게 만들기
+
+
+container erase-remove idiom
+
+    erase ( remove() )
+
+
+WM_LBUTTONDOWN
+    클릭체크 : D2DFramework -> BuggyHouse -> Bug 클릭 체크
+    벌레를 제거 : BuggyHouse
+
+Windows Event System 
+    -> DirextX Input (XInput)
+    GetAsyncKeyState
+
+async(비동기) <-> sync(동기)
