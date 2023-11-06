@@ -1,0 +1,20 @@
+Direct2D
+- 해상도, 모니터 스펙
+- 연습용
+
+Direct3D
+- 제가 출시한 게임
+- 장치 (그래픽카드, 모니터 특성 및 환경)
+
+
+    Roadmap
+    1. Device 생성 ( DeviceContext 포함 )
+    2. SwapChain 생성
+    3. 렌더타겟 (SwapChain의 후면버퍼를 지정)
+    4. Depth-Stencil Buffer 생성
+    5. 뷰포트 지정
+    6. 렌더링 (그리기)
+
+
+DX Resource & View
+
