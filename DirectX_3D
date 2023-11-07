@@ -18,3 +18,37 @@ Direct3D
 
 DX Resource & View
 
+
+창모드 <-> 전체화면
+    - 해상도 변경
+    - 윈도우 배경 제거
+    - 모드 스위치
+
+
+해상도 변경
+    (X Device & Device Context - 변경없음)
+
+
+    - SwapChain
+    - RenderTarget & RenderTargetView
+    - Depth Stencil Buffer
+    - Viewport
+
+
+창 크기 변경 관련 Window Message
+    WM_ENTERSIZEMOVE
+    WM_SIZE
+        사이징
+        MINIMIZE
+        MAXIMIZE
+        RESTORE
+    WM_EXITSIZEMOVE
+
+    +
+
+    WM_GETMINMAXINFO
+
+    +
+
+    땡 경고음
+    WM_MENUCHAR
