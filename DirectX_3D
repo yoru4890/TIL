@@ -52,3 +52,11 @@ DX Resource & View
 
     땡 경고음
     WM_MENUCHAR
+
+
+Shader
+    shade + er( programmable )
+
+    HLSL ( High-Level Shading Language )
+
+        Semantic Program
