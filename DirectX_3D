@@ -60,3 +60,37 @@ Shader
     HLSL ( High-Level Shading Language )
 
         Semantic Program
+
+
+
+Device
+    CreateBuffer
+    CreateVertexShader
+    CreatePixelShader
+    CreateInpuLayout
+    CreateRenderTargetView
+    CreateTexture2D
+    CreateDepthStencilView
+
+DeviceContext
+    IASetInpuLayout
+    IASetVertexBuffers
+    IASetPrimitiveTopology
+
+    VSSetShader
+    RSSetViewpoints
+    PSSetShader
+    
+    OMSetRenderTargets
+    OMSetRenderTargets
+
+    Draw
+    Flush
+    
+    ClearRenderTargetView
+    ClearDepthStencilView
+
+    /////////////////////////////
+    
+    Map
+    UnMap
