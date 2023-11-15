@@ -137,3 +137,49 @@ int main(delta)
     }
 }
 
+DirectInput
+    - 아주 정밀한 데이터 수집
+    - 액션매핑 (옵션 -> 키설정)
+
+    Action Mapping
+    점프 : 레이싱휠 X축 + 
+
+    단종
+
+XInput
+    - XBox 컨트롤러 완벽 호환 (유선/무선, 진동)
+    - 헤드셋
+
+
+개념적인(무식한) 방법
+    키보드 - 키 상태(마우스버튼 포함)
+    마우스 - 커서 위치
+
+mInput.GetKeyUp("Left");
+
+
+DirectXMath
+    SIMD
+    __m128 (레지스터 타입)
+
+
+Calling Convention(호출규칙)
+    함수 매개변수 전달
+
+일반 변수
+__m128 vector;
+
+
+struct vector
+{
+    float x;
+    float y;
+    float z;
+    float w;
+};
+
+vector v;
+vector* p = new vector;
+
+
+Matrix Order
