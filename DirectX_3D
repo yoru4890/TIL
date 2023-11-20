@@ -183,3 +183,16 @@ vector* p = new vector;
 
 
 Matrix Order
+
+
+
+Shader Constant Buffer
+
+
+DirectX TK(toolkit)
+
+
+Pre-Compiled Header
+pch
+
+(마이크로소프트만 씀. 다른 회사들은 싫어하는 편!)
