@@ -1,0 +1,262 @@
+Python for C++ programmer
+
+- high-level, general-purpose language
+- interpreter language
+- dynamically typed
+- grabage-collected
+- built-in libraries
+
+느리다. 하지만 개발속도는 빠르다
+
+Phthonic
+
+
+
+기초문법
+
+이름규칙
+
+- 변수는 글자 혹은 _로 시작해야함
+- 글자는 A-z, 0-9, _ 만 사용 가능합니다.
+- 대소문자 구분
+
+함수 : function, my_function
+변수 : variable, my_variable
+Class : Bug, MyClass
+상수 : CONSTANT, MY_CONSTANT
+모듈 : module.py my_module.py
+
+특수한 표기
+_internal_variable : proteted 멤버
+__properties : private 멤버
+special_case_ : keyword 중복을 피하기 위해
+__magic_word__ : duner(double underscore), 생성자, 빌트인 함수
+
+
+코드블럭
+indent
+
+x = 0
+if x > 0:
+    print("x는 0보다 큽니다")
+
+
+Entry Point 없습니다.
+End of line 없습니다.
+
+주석
+# 한줄 주석입니다.
+
+x = 1 # 변수 x에 1을 대입합니다.
+
+'''
+여러줄 주석입니다.
+'''
+
+"""
+여러줄 주석입니다.
+여러줄 주석입니다.
+"""
+
+(사실은 문자열 리터럴이다.)
+
+변수
+- 선언이 필요 없습니다. 동적 타입
+
+x = 0
+y = "hello"
+z = 3.14
+
+x,y,z = 0, "hello", 3.14
+
+x=0, y="hello", z= 3.14   (잘못되었다)
+
+리터럴
+
+정수 - int - 11, 0xffffffff
+실수 - float - 3.14 (double 정밀도), 1.0e+8
+복소수 - complex - 1.1 + 2.2j
+
+논리 - bool - True, False
+문자열 - str - "print"
+                char 타입 X
+                null-terminated X
+                " ... "
+                ' ... '
+
+None - None - nullptr 같은 개념
+
+import sys
+
+print(sys.maxsize)
+
+print("Hello World")
+print('Hello World')
+
+print('"Hello World"')
+print("you aren't my friend")
+
+print(""" '" """)
+
+print(r"c:\test\test")
+
+# 파이썬은 전부 오브젝트다
+
+print(type(1))
+print(type(3.14))
+print(type("Hello"))
+print(type(1.1+2.2j))
+print(type(True))
+print(type(None))
+
+print("---------------------")
+
+print(int())
+print(float())
+print(str())
+
+
+x = 10
+y = "cat"
+
+y = x
+y = y + 1
+
+print(x)
+print(y)
+
+print(f"id: {id(x)} - value: {x}")
+print(f"id: {id(y)} - value: {y}")
+
+
+연산자
+
+산술연산자
++ - * / %
+
+비교연산자
+
+논리연산자
+
+# 연산자
+print(1+1)
+print(3-2)
+print(5*2)
+print(6/3)
+print(6%3)
+
+print(6//3)
+print(2**3)
+
+
+x = 5
+print( 2 < x <= 10)
+
+print(True and False)
+print(True or False)
+print(not True)
+
+x = y = 1
+
+x, y = 1, 2
+
+x, y = y, x
+
+x += 1
+y -= 2
+x **= 2
+
+#++x, x++ 존재하지않는다
+
+시퀀스 타입(Sequence Type)
+
+list
+
+set
+
+dict
+
+#list
+jobs = ["warrior", "archer", "thief"]
+
+print(jobs[0])
+print(jobs[1])
+
+jobs.append("mage")
+del jobs[0]
+
+mixed = [1, "둘", 3 , "Four"]
+
+print(mixed)
+
+array2d = [[1,2,3],[4,5,6],[7,8,9]]
+print(array2d)
+
+dynamic_list = [[1],[1,2,3],[1,2,3,4,5]]
+print(dynamic_list)
+
+print(mixed[-1])
+print([1,2,3] + [4,5,6])
+print([1,2,3] * 3)
+
+print(3 in [1,2,3])
+
+# slice
+# [start:end:step]
+my_list = [1,2,3,4,5]
+
+print(my_list[1:3])
+print(my_list[2:])
+print(my_list[0:4:2])
+print(my_list[::-1])
+
+# str
+
+my_string = "hello world"
+
+print("h" in my_string)
+print(my_string[::-1])
+print("hello"[0:3])
+
+#format
+
+job = "programmer"
+age = 20
+name = "John"
+
+print("I am " + job + ".")
+print(f"I am {job}, and age is {age}. I am {name}.")
+
+print("🚗")
+
+# tuple - immutable list
+
+x = (1,2)
+
+print(x)
+
+# x[0] = 3 불가능
+
+# set
+
+set1 = {1,2,3,4,5}
+set1.add(6)
+
+# set1[1] = 0 불가능
+
+set2 = {2,4,6,8,10}
+
+print(set1 | set2)
+print(set1 & set2)
+print(set1 - set2)
+
+print( set1 < set2 )
+
+# dict
+
+developers = {"name" : "Jone", "age" : 30, "country" : "USA", "skills" : ["Java", "C#", "Python"]}
+
+print(developers["name"])
+
+print(developers)
+
