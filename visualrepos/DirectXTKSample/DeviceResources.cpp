@@ -375,3 +375,296 @@ void DeviceResources::CreateWindowSizeDependentResources()
 		static_cast<float>(backBufferHeight)
 	);
 }
+
+void DeviceResources::SetWindow(HWND window, int width, int height) noexcept
+{
+	m_window = window;
+	
+	m_outputSize.left = m_outputSize.top = 0;
+	m_outputSize.right = width;
+	m_outputSize.bottom = height;
+}
+
+bool DeviceResources::WindowSizeChanged(int width, int height)
+{
+	RECT newRc;
+	newRc.left = newRc.top = 0;
+	newRc.right = width;
+	newRc.bottom = height;
+	if (newRc == m_outputSize)
+	{
+		UpdateColorSpace();
+
+		return false;
+	}
+
+	m_outputSize = newRc;
+	CreateWindowSizeDependentResources();
+	return true;
+}
+
+void DeviceResources::HandleDeviceLost()
+{
+	if (m_deviceNotify)
+	{
+		m_deviceNotify->OnDeviceLost();
+	}
+
+	m_d3dDepthStencilView.Reset();
+	m_d3dRenderTargetView.Reset();
+	m_renderTarget.Reset();
+	m_depthStencil.Reset();
+	m_swapChain.Reset();
+	m_d3dContext.Reset();
+	m_d3dAnnotation.Reset();
+
+#ifdef _DEBUG
+	{
+		ComPtr<ID3D11Debug> d3dDebug;
+		if (SUCCEEDED(m_d3dDevice.As(&d3dDebug)))
+		{
+			d3dDebug->ReportLiveDeviceObjects(D3D11_RLDO_SUMMARY);
+		}
+	}
+#endif
+
+	m_d3dDevice.Reset();
+	m_dxgiFactory.Reset();
+
+	CreateDeviceResources();
+	CreateWindowSizeDependentResources();
+
+	if (m_deviceNotify)
+	{
+		m_deviceNotify->OnDeviceRestored();
+	}
+}
+
+void DeviceResources::Present()
+{
+	HRESULT hr = E_FAIL;
+	if (m_options & c_AllowTearing)
+	{
+		hr = m_swapChain->Present(0, DXGI_PRESENT_ALLOW_TEARING);
+	}
+	else
+	{
+		hr = m_swapChain->Present(1, 0);
+	}
+
+	m_d3dContext->DiscardView(m_d3dRenderTargetView.Get());
+
+	if (m_d3dDepthStencilView)
+	{
+		m_d3dContext->DiscardView(m_d3dDepthStencilView.Get());
+	}
+
+	if (hr == DXGI_ERROR_DEVICE_REMOVED || hr == DXGI_ERROR_DEVICE_RESET)
+	{
+#ifdef _DEBUG
+		char buff[64] = {};
+
+		sprintf_s(buff, "Device Lost on Present : Reason code 0x%08X\n",
+			static_cast<unsigned int>(
+				(hr == DXGI_ERROR_DEVICE_REMOVED) ?
+				m_d3dDevice->GetDeviceRemovedReason() : hr)
+		);
+		OutputDebugStringA(buff);
+#endif
+		HandleDeviceLost();
+	}
+	else
+	{
+		ThrowIfFailed(hr);
+
+		if (!m_dxgiFactory->IsCurrent())
+		{
+			CreateFactory();
+		}
+	}
+}
+
+void DeviceResources::CreateFactory()
+{
+#if defined(_DEBUG) && (_WIN32_WINNT >= 0x0603)
+	bool debugDXGI = false;
+	{
+		ComPtr<IDXGIInfoQueue> dxgiInfoQueue;
+		if (SUCCEEDED(DXGIGetDebugInterface1(
+			0, IID_PPV_ARGS(dxgiInfoQueue.GetAddressOf())
+		)))
+		{
+			debugDXGI = true;
+
+			ThrowIfFailed(CreateDXGIFactory2(
+				DXGI_CREATE_FACTORY_DEBUG,
+				IID_PPV_ARGS(m_dxgiFactory.ReleaseAndGetAddressOf())
+			));
+
+			dxgiInfoQueue->SetBreakOnSeverity(
+				DXGI_DEBUG_ALL,
+				DXGI_INFO_QUEUE_MESSAGE_SEVERITY_ERROR,
+				true
+			);
+			dxgiInfoQueue->SetBreakOnSeverity(
+				DXGI_DEBUG_ALL,
+				DXGI_INFO_QUEUE_MESSAGE_SEVERITY_CORRUPTION,
+				true
+			);
+
+			DXGI_INFO_QUEUE_MESSAGE_ID hide[] =
+			{
+				80,
+			};
+			DXGI_INFO_QUEUE_FILTER filter = {};
+			filter.DenyList.NumIDs = _countof(hide);
+			filter.DenyList.pIDList = hide;
+			dxgiInfoQueue->AddStorageFilterEntries(DXGI_DEBUG_DXGI, &filter);
+		}
+	}
+
+	if (!debugDXGI)
+#endif
+
+		ThrowIfFailed(CreateDXGIFactory1(
+			IID_PPV_ARGS(m_dxgiFactory.ReleaseAndGetAddressOf())
+		));
+}
+
+void DeviceResources::GetHardwareAdapter(IDXGIAdapter1** ppAdapter)
+{
+	*ppAdapter = nullptr;
+
+	ComPtr<IDXGIAdapter1> adapter;
+
+#if defined(__dxgi1_6_h__) && defined(NTDDI_WIN10_RS4)
+	ComPtr<IDXGIFactory6> factory6;
+	HRESULT hr = m_dxgiFactory.As(&factory6);
+	if (SUCCEEDED(hr))
+	{
+		for (UINT adapterIndex = 0;
+			SUCCEEDED(factory6->EnumAdapterByGpuPreference(
+				adapterIndex,
+				DXGI_GPU_PREFERENCE_HIGH_PERFORMANCE,
+				IID_PPV_ARGS(adapter.ReleaseAndGetAddressOf()))
+			); 
+			adapterIndex++)
+		{
+			DXGI_ADAPTER_DESC1 desc;
+			ThrowIfFailed(adapter->GetDesc1(&desc));
+
+			if (desc.Flags & DXGI_ADAPTER_FLAG_SOFTWARE)
+			{
+				continue;
+			}
+
+#ifdef _DEBUG
+			wchar_t buff[256] = {};
+			swprintf_s(buff, L"Direct3D Adapter (%u) : VID : %04X, PID:%04X - %ls\n",
+				adapterIndex,
+				desc.VendorId,
+				desc.DeviceId,
+				desc.Description
+			);
+			OutputDebugStringW(buff);
+#endif
+
+			break;
+		}
+	}
+#endif
+
+	if (!adapter)
+	{
+		for (UINT adapterIndex = 0;
+			SUCCEEDED(m_dxgiFactory->EnumAdapters1(
+				adapterIndex,
+				adapter.ReleaseAndGetAddressOf()));
+				adapterIndex++)
+		{
+			DXGI_ADAPTER_DESC1 desc;
+			ThrowIfFailed(adapter->GetDesc1(&desc));
+
+			if (desc.Flags & DXGI_ADAPTER_FLAG_SOFTWARE)
+			{
+				continue;
+			}
+
+#ifdef _DEBUG
+			wchar_t buff[256] = {};
+			swprintf_s(buff, L"Direct3D Adapter (%u) : VID : %04X, PID: %04X - %ls\n",
+				adapterIndex,
+				desc.VendorId,
+				desc.DeviceId,
+				desc.Description
+			);
+			OutputDebugStringW(buff);
+#endif
+
+			break;
+		}
+	}
+
+	*ppAdapter = adapter.Detach();
+}
+
+void DeviceResources::UpdateColorSpace()
+{
+	DXGI_COLOR_SPACE_TYPE colorSpace = DXGI_COLOR_SPACE_RGB_FULL_G22_NONE_P709;
+
+	bool isDisplayHDR10 = false;
+
+#if defined(NTDDI_WIN10_RS2)
+	if (m_swapChain)
+	{
+		ComPtr<IDXGIOutput> output;
+		if (SUCCEEDED(m_swapChain->GetContainingOutput(output.GetAddressOf())))
+		{
+			ComPtr<IDXGIOutput6> output6;
+			if (SUCCEEDED(output.As(&output6)))
+			{
+				DXGI_OUTPUT_DESC1 desc;
+				ThrowIfFailed(output6->GetDesc1(&desc));
+
+				if (desc.ColorSpace == DXGI_COLOR_SPACE_RGB_FULL_G2084_NONE_P2020)
+				{
+					isDisplayHDR10 = true;
+				}
+			}
+		}
+	}
+#endif
+
+	if ((m_options & c_EnableHDR) && isDisplayHDR10)
+	{
+		switch (m_backBufferFormat)
+		{
+			case DXGI_FORMAT_R10G10B10A2_UNORM:
+				colorSpace = DXGI_COLOR_SPACE_RGB_FULL_G2084_NONE_P2020;
+				break;
+
+			case DXGI_FORMAT_R16G16B16A16_FLOAT:
+				colorSpace = DXGI_COLOR_SPACE_RGB_FULL_G10_NONE_P709;
+				break;
+
+			default:
+				break;
+		}
+	}
+
+	m_colorSpace = colorSpace;
+
+	ComPtr<IDXGISwapChain3> swapChain3;
+	if (SUCCEEDED(m_swapChain.As(&swapChain3)))
+	{
+		UINT colorSpaceSupport = 0;
+		if (SUCCEEDED(
+			swapChain3->CheckColorSpaceSupport(colorSpace, &colorSpaceSupport))
+			&&
+			(colorSpaceSupport & DXGI_SWAP_CHAIN_COLOR_SPACE_SUPPORT_FLAG_PRESENT)
+			)
+		{
+			ThrowIfFailed(swapChain3->SetColorSpace1(colorSpace));
+		}
+	}
+}
