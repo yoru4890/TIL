@@ -76,7 +76,7 @@ namespace DX
 				throw std::exception("QueryPerformanceCounter");
 			}
 
-			uint64_t timeDelta{ static_cast<uint64_t>(currentTime.QuadPart - m_qpcLastTime.QuadPart };
+			uint64_t timeDelta{ static_cast<uint64_t>(currentTime.QuadPart - m_qpcLastTime.QuadPart) };
 
 			m_qpcLastTime = currentTime;
 			m_qpcSecondCounter += timeDelta;
@@ -89,7 +89,7 @@ namespace DX
 			timeDelta *= TicksPerSecond;
 			timeDelta /= static_cast<uint64_t>(m_qpcFrequency.QuadPart);
 
-			uint32_t lastFramecount{ m_frameCount };
+			uint32_t lastFrameCount{ m_frameCount };
 			
 			if (m_isFixedTimeStep)
 			{
@@ -129,7 +129,7 @@ namespace DX
 			{
 				m_framesPerSecond = m_framesThisSecond;
 				m_framesThisSecond = 0;
-				m_qpcSecondCouter %= static_cast<uint64_t>(m_qpcFrequency.QuadPart);
+				m_qpcSecondCounter %= static_cast<uint64_t>(m_qpcFrequency.QuadPart);
 			}
 
 		}
