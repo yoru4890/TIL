@@ -1,10 +1,26 @@
 #include "pch.h"
-#include "Game.h"
 
 using namespace DirectX;
 
 namespace
 {
+	class MyGame final : public Game
+	{
+	public:
+		~MyGame() override {}
+
+	protected:
+		void Update(DX::StepTimer const& timer) override
+		{
+			Game::Update(timer);
+		}
+
+		void Render() override
+		{
+			Game::Render();
+		}
+	};
+
 	std::unique_ptr<Game> g_game;
 }
 
@@ -26,7 +42,7 @@ int WINAPI wWinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, 
 	HRESULT hr = CoInitializeEx(nullptr, COINITBASE_MULTITHREADED);
 	if (FAILED(hr)) { return 1; }
 
-	g_game = std::make_unique<Game>();
+	g_game = std::make_unique<MyGame>();
 
 	{
 		WNDCLASSEXW wcex = {};

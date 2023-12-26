@@ -3,7 +3,6 @@
 #include "pch.h"
 #include <cmath>
 #include <cstdint>
-#include <exception>
 
 namespace DX
 {

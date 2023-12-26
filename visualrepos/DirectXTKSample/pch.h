@@ -38,10 +38,14 @@
 #include <DirectXMath.h>
 #include <DirectXColors.h>
 
+#include <map>
+#include <list>
 #include <algorithm>
 #include <exception>
 #include <memory>
 #include <stdexcept>
+#include <fstream>
+#include <sstream>
 
 #include <stdio.h>
 
@@ -68,6 +72,23 @@
 #include "VertexTypes.h"
 
 #pragma warning(pop)
+
+#pragma warning(push)
+#pragma warning(disable:26812)
+#pragma warning(disable:26451)
+#pragma warning(disable:26495)
+#pragma warning(disable:6319)
+#pragma warning(disable:6386)
+#pragma warning(disable:6385)
+#include "rapidjson/document.h"
+#pragma warning(pop)
+
+#include "Utility.h"
+#include "StepTimer.h"
+#include "DeviceResources.h"
+#include "TextureManager.h"
+#include "JSONManager.h"
+#include "Game.h"
 
 namespace DX
 {

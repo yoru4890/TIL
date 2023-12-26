@@ -1,23 +1,10 @@
 #include "pch.h"
 
-#include <fstream>
-#include <sstream>
-#include "Game.h"
-
-#pragma warning(push)
-#pragma warning(disable:26812)
-#pragma warning(disable:26451)
-#pragma warning(disable:26495)
-#pragma warning(disable:6319)
-#pragma warning(disable:6386)
-#pragma warning(disable:6385)
-#include "rapidjson/document.h"
-#pragma warning(pop)
-
 extern void ExitGame() noexcept;
 
 using namespace DirectX;
 using namespace DirectX::SimpleMath;
+using namespace DX;
 
 using Microsoft::WRL::ComPtr;
 
@@ -29,7 +16,8 @@ Game::Game() noexcept(false)
 
 Game::~Game()
 {
-
+	JsonManager::Instance().ReleaseAll();
+	TextureManager::Instance().ReleaseAll();
 }
 
 void Game::Initialize(HWND window, int width, int height)
@@ -46,35 +34,7 @@ void Game::Initialize(HWND window, int width, int height)
 	m_deviceResources->CreateWindowSizeDependentResources();
 	CreateWindowSizeDependentResources();
 
-	LoadSpriteSheetsFromJSON();
-}
-
-void Game::LoadSpriteSheetsFromJSON()
-{
-	m_rects.clear();
-
-	std::wifstream file(L"Assets/sprites.json", std::wifstream::binary);
-	std::wstringstream stream;
-
-	stream << file.rdbuf();
-
-	file.close();
-
-	rapidjson::GenericDocument<rapidjson::UTF16<>> doc;
-	doc.Parse(stream.str().c_str());
-
-	auto frames = doc[L"frames"].GetArray();
-	RECT rct{};
-	for (auto& elem : frames)
-	{
-		auto obj = elem[L"frame"].GetObject();
-		rct.left = obj[L"x"].GetInt();
-		rct.top = obj[L"y"].GetInt();
-		rct.right = rct.left + obj[L"w"].GetInt();
-		rct.bottom = rct.top + obj[L"h"].GetInt();
-
-		m_rects.push_back(rct);
-	}
+	TextureManager::Instance().Initialize(m_deviceResources.get());
 }
 
 #pragma region Frame Update
@@ -211,12 +171,16 @@ void Game::OnDeviceLost()
 	
 	m_spriteBatch.reset();
 	m_commonStates.reset();
+
+	TextureManager::Instance().OnDeviceLost();
 }
 
 void Game::OnDeviceRestored()
 {
 	CreateDeviceDependentResources();
 	CreateWindowSizeDependentResources();
+
+	TextureManager::Instance().OnDeviceRestored();
 }
 
 #pragma endregion
