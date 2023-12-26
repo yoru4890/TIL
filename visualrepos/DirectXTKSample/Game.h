@@ -46,5 +46,12 @@ public:
 	void OnWindowSizeChanged(int width, int height);
 
 	void GetDefaultSize(int& width, int& height) const noexcept;
+
+	// practic
+	Microsoft::WRL::ComPtr<ID3D11ShaderResourceView> m_texCat;
+	Microsoft::WRL::ComPtr<ID3D11ShaderResourceView> m_texBug;
+	std::unique_ptr<DirectX::SpriteBatch> m_spriteBatch;
+
+	std::unique_ptr<DirectX::CommonStates> m_commonStates;
 };
 
