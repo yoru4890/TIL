@@ -57,6 +57,8 @@ void Game::Update(DX::StepTimer const& timer)
 		ExitGame();
 	}
 
+	ActorManager::Instance().Update(timer.GetElapsedSeconds());
+
 }
 #pragma endregion
 
@@ -74,6 +76,8 @@ void Game::Render()
 	m_deviceResources->PIXBeginEvent(L"Render");
 
 	m_spriteBatch->Begin(SpriteSortMode_Deferred, m_commonStates->NonPremultiplied());
+
+	ActorManager().Instance().Draw(m_spriteBatch.get());
 
 	m_spriteBatch->End();
 
@@ -173,6 +177,7 @@ void Game::OnDeviceLost()
 	m_commonStates.reset();
 
 	TextureManager::Instance().OnDeviceLost();
+	ActorManager::Instance().OnDeviceLost();
 }
 
 void Game::OnDeviceRestored()
@@ -181,6 +186,7 @@ void Game::OnDeviceRestored()
 	CreateWindowSizeDependentResources();
 
 	TextureManager::Instance().OnDeviceRestored();
+	ActorManager::Instance().OnDeviceRestored();
 }
 
 #pragma endregion
