@@ -1,5 +1,18 @@
 #include "pch.h"
+
+#include <fstream>
+#include <sstream>
 #include "Game.h"
+
+#pragma warning(push)
+#pragma warning(disable:26812)
+#pragma warning(disable:26451)
+#pragma warning(disable:26495)
+#pragma warning(disable:6319)
+#pragma warning(disable:6386)
+#pragma warning(disable:6385)
+#include "rapidjson/document.h"
+#pragma warning(pop)
 
 extern void ExitGame() noexcept;
 
@@ -32,6 +45,36 @@ void Game::Initialize(HWND window, int width, int height)
 
 	m_deviceResources->CreateWindowSizeDependentResources();
 	CreateWindowSizeDependentResources();
+
+	LoadSpriteSheetsFromJSON();
+}
+
+void Game::LoadSpriteSheetsFromJSON()
+{
+	m_rects.clear();
+
+	std::wifstream file(L"Assets/sprites.json", std::wifstream::binary);
+	std::wstringstream stream;
+
+	stream << file.rdbuf();
+
+	file.close();
+
+	rapidjson::GenericDocument<rapidjson::UTF16<>> doc;
+	doc.Parse(stream.str().c_str());
+
+	auto frames = doc[L"frames"].GetArray();
+	RECT rct{};
+	for (auto& elem : frames)
+	{
+		auto obj = elem[L"frame"].GetObject();
+		rct.left = obj[L"x"].GetInt();
+		rct.top = obj[L"y"].GetInt();
+		rct.right = rct.left + obj[L"w"].GetInt();
+		rct.bottom = rct.top + obj[L"h"].GetInt();
+
+		m_rects.push_back(rct);
+	}
 }
 
 #pragma region Frame Update
@@ -53,6 +96,7 @@ void Game::Update(DX::StepTimer const& timer)
 	{
 		ExitGame();
 	}
+
 }
 #pragma endregion
 
@@ -70,8 +114,7 @@ void Game::Render()
 	m_deviceResources->PIXBeginEvent(L"Render");
 
 	m_spriteBatch->Begin(SpriteSortMode_Deferred, m_commonStates->NonPremultiplied());
-	m_spriteBatch->Draw(m_texBug.Get(), XMFLOAT2(0.0f, 0.0f), nullptr, Colors::White, 0.0f, XMFLOAT2(0.0f, 0.0f), 3.0f);
-	m_spriteBatch->Draw(m_texCat.Get(), XMFLOAT2(50.0f, 0.0f), nullptr, Colors::White, 0.0f, XMFLOAT2(0.0f, 0.0f), 0.5f);
+
 	m_spriteBatch->End();
 
 	m_deviceResources->PIXEndEvent();
@@ -154,25 +197,8 @@ void Game::CreateDeviceDependentResources()
 	auto context = m_deviceResources->GetD3DeviceContext();
 
 	m_commonStates = std::make_unique<CommonStates>(device);
-
 	m_spriteBatch = std::make_unique<SpriteBatch>(context);
 
-	DX::ThrowIfFailed(
-		CreateWICTextureFromFile(
-			device,
-			L"Assets/bug.png",
-			nullptr,
-			m_texBug.ReleaseAndGetAddressOf()
-		)
-	);
-
-	DX::ThrowIfFailed(
-		CreateWICTextureFromFile(
-			device, L"Assets/cat.png",
-			nullptr,
-			m_texCat.ReleaseAndGetAddressOf()
-		)
-	);
 }
 
 void Game::CreateWindowSizeDependentResources()
@@ -182,8 +208,7 @@ void Game::CreateWindowSizeDependentResources()
 
 void Game::OnDeviceLost()
 {
-	m_texCat.Reset();
-	m_texBug.Reset();
+	
 	m_spriteBatch.reset();
 	m_commonStates.reset();
 }

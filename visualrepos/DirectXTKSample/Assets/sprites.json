@@ -1,0 +1,28 @@
+{"frames": [
+
+{
+	"filename": "die01.png",
+	"frame": {"x":0,"y":0,"w":360,"h":360},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":360,"h":360},
+	"sourceSize": {"w":360,"h":360}
+},
+{
+	"filename": "die02.png",
+	"frame": {"x":0,"y":360,"w":360,"h":360},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":360,"h":360},
+	"sourceSize": {"w":360,"h":360}
+}],
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "die.png",
+	"format": "RGBA8888",
+	"size": {"w":512,"h":1024},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:5b7e6fb88b691c560fef4eae3328a1ff:83857eaae413db1f5a15fa6e517b0007:0dd90663f1862a26d2090c86a03da2aa$"
+}
+}

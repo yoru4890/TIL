@@ -13,6 +13,15 @@ private:
 	std::unique_ptr<DirectX::Keyboard>		m_keyboard;
 	std::unique_ptr<DirectX::Mouse>			m_mouse;
 
+	int m_currentFrame{};
+	double m_timeToNextFrame{ 0.1f };
+	std::vector<RECT> m_rects;
+	void LoadSpriteSheetsFromJSON();
+
+	Microsoft::WRL::ComPtr<ID3D11ShaderResourceView> m_texture;
+	std::unique_ptr<DirectX::SpriteBatch> m_spriteBatch;
+	std::unique_ptr<DirectX::CommonStates> m_commonStates;
+
 	void Update(DX::StepTimer const& timer);
 	void Render();
 
@@ -47,11 +56,5 @@ public:
 
 	void GetDefaultSize(int& width, int& height) const noexcept;
 
-	// practic
-	Microsoft::WRL::ComPtr<ID3D11ShaderResourceView> m_texCat;
-	Microsoft::WRL::ComPtr<ID3D11ShaderResourceView> m_texBug;
-	std::unique_ptr<DirectX::SpriteBatch> m_spriteBatch;
-
-	std::unique_ptr<DirectX::CommonStates> m_commonStates;
 };
 
