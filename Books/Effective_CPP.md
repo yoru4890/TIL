@@ -64,3 +64,13 @@ after : 사본 -> 자원
 경우에 따라서는 암시적변환도 가능하지만 실수가 일어날 수 있다는 것을 인지해야한다.
 
 </details>
+
+<details>
+<summary>항목 16 : new 및 delete를 사용할 때는 형태를 반드시 맞추자</summary>
+
+new 표현식에 [] 포함 이면 delete도 [] 포함.
+
+미포함이면 똑같이 미포함
+
+
+</details>
