@@ -74,3 +74,23 @@ new 표현식에 [] 포함 이면 delete도 [] 포함.
 
 
 </details>
+
+<details>
+<summary>항목 17 : new로 생성한 객체를 스마트 포인터에 저장하는 코드는 별도의 한 문장으로 만들자</summary>
+
+```cpp
+function(std::shared_ptr<Type>(new Type), function2());
+```
+위 연산의 실행순서가 컴파일러 제작사마다 다를 수 있다.
+
+new Type -> function2() -> shared_ptr 인 경우 function2()에서 예외상황이 발생하면 누수가 발생한다.
+
+```cpp
+std::shared_ptr<Type> p(new Type);
+
+function(p, function2());
+```
+
+이렇게 따로 빼주는게 안전하다.
+
+</details>
