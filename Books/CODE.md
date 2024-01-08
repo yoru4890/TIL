@@ -20,3 +20,12 @@
 점자에도 적용되는 2(Binary)
 
 </details>
+
+<details>
+<summary>Chapter 4 전등을 분해해 봅시다</summary>
+
+전압, 저항, 전류, 전력에 대해 간단한 설명
+
+전기회로와 이진부호의 유사성
+
+</details>
