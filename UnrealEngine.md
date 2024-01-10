@@ -47,3 +47,13 @@ RootComponent
 
 - meta = (AllowPrivateAccess = "true")
 - Category = "Category Name"
+
+----------------------
+
+- Sweeping
+- AddActorLocalOffset
+- AddActorLocalRotation
+- GetHitResultUnderCursor
+- DrawDebugSphere
+- SewWorldRotation
+- FMath::RInterpTo
