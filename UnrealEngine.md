@@ -57,3 +57,15 @@ RootComponent
 - DrawDebugSphere
 - SewWorldRotation
 - FMath::RInterpTo
+- GetWorldTimerManager
+- TSubclassOf
+- SpawnActor
+- UClass
+
+## Hit Events
+
+- OnComponentHit
+- Invocation list
+- OnTankeAnyDamage
+- ApplyDamage
+- GameMode
