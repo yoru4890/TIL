@@ -77,3 +77,12 @@ RootComponent
 - BlueprintImplementableEvent
 - SpawnEmitterAtLocation
 - CameraShake
+
+Pawn, Character
+
+Character는 Pawn에서 파생된 클래스
+
+- AddMovementInput()
+- AddControllerPitchInput()
+- AddControllerYawInput()
+- Jump()
