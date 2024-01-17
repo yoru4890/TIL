@@ -86,3 +86,9 @@ Character는 Pawn에서 파생된 클래스
 - AddControllerPitchInput()
 - AddControllerYawInput()
 - Jump()
+
+컨트롤러는 마우스와는 화면전환방식을 달리 해줘야한다
+
+Spring Arm 과 Camera
+
+Skeletal Mesh, Animation
