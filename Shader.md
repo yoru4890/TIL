@@ -1,25 +1,30 @@
-Vertex Shader
+### Vertex Shader
 
+```
 for ( auto v : vertax)
 {
     vertex_shader();
 }
+```
 
-Fragment Shader
+### Fragment Shader
 
+```
 for ( auto p : pixels)
 {
     fragment_shader();
 }
+```
 
-+ : 밝아지는 경향
-* : 어두워지는 경향
+`+` : 밝아지는 경향
+
+`*` : 어두워지는 경향
 
 삼각함수를 이용해서 다양한 표현가능
 
 -----------------------------
 
-Dissolve
+### Dissolve
 
 조금씩 사라지는것처럼 보이는 효과
 
