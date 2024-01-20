@@ -104,3 +104,21 @@ Inverse Tranform Direction
 Rotation From X Vector
 
 애니메이션 속도 계산하고 Blend Space에 적용시키기
+
+런타임에 Actor spawning
+
+안보이게 하기
+```
+GetMesh()->HideBoneByName(TEXT("weapon_r"), EPhysBodyOp::PBO_None);
+```
+
+소켓달고 소켓에 붙이기
+```
+Gun->AttachToComponent(GetMesh(), FAttachmentTransformRules::KeepRelativeTransform,TEXT("WeaponSocket"));
+
+Gun->SetOwner(this);
+```
+
+```
+UGameplayStatics::SpawnEmitterAttached
+```
