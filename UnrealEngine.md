@@ -141,3 +141,27 @@ FPointDamageEvent
 TakeDamage
 
 Blend Poses by bool
+
+## AIController
+
+SetFocus
+
+MoveToActor
+
+Nav Mesh Bounds Volume
+
+LineOfSightTo
+
+ClearFocus
+
+Behavior Tree
+
+Blackboard
+
+RunBehaviorTree
+
+GetBlackboardComponent()->SetValueAs
+
+BTTaskNode
+
+BTTask_BlackboardBase
