@@ -165,3 +165,15 @@ GetBlackboardComponent()->SetValueAs
 BTTaskNode
 
 BTTask_BlackboardBase
+
+EBTNodeResult::Type UBTTask_ClearBlackboardValue::ExecuteTask
+
+BTService
+
+TickNode
+
+FCollisionQueryParams
+
+DetachFromControllerPendingDestory
+
+SetCollisionEnabled
