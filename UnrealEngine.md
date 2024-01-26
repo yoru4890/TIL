@@ -189,3 +189,13 @@ CreateWidget
 AddToViewport
 
 TActorRange
+
+USoundBase
+
+SpawnSoundAttached
+
+PlaySoundAtLocation
+
+Sound_Que
+
+Spatialization
