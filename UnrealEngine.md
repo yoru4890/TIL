@@ -177,3 +177,15 @@ FCollisionQueryParams
 DetachFromControllerPendingDestory
 
 SetCollisionEnabled
+
+GameHasEnded
+
+GetWorldTimerManager
+
+UUserWidget
+
+CreateWidget
+
+AddToViewport
+
+TActorRange
