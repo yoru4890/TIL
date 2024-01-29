@@ -395,6 +395,19 @@ NVI 관용구를 사용하면 해결
 
 객체 합성은 객체가 또 다른 객체를 멤버로 가지는 것이다.
 
-"has-a" 는 사물을 본 뜬 것들, "is-implemeted-in-terms-of"는 시스템적인 구현을 위한 인공물
+"has-a" 는 사물을 본 뜬 것들, "is-implemented-in-terms-of"는 시스템적인 구현을 위한 인공물
+
+</details>
+
+<details>
+<summary>항목 39 : private 상속은 심사숙고해서 구사하자</summary>
+
+private 상속은 "is-implemented-in-terms-of"이다.
+
+"is-implemented-in-terms-of" 를 객체 합성과 private 상속 둘중에 하나를 골라서 사용해야 하는데 할 수 있으면 객체 합성, 꼭 해야하면 private 상속으로 해라.
+
+객체 합성으로 하면 좋은점, 새로 파생 클래스를 만들때 다시 재정의 하는 것을 막을 수 있다. 컴파일 의존성을 최소화 할 수 있다.
+
+private 상속은 protected 멤버에 접근 또는 상속받은 가상함수를 재정의해야 할경우, 공백 기본 클래스 최적화(EBO : Empty Base Optimization)를 활성가능
 
 </details>
