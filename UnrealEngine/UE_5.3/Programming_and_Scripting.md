@@ -68,27 +68,26 @@ Reflection System : 런타임 중에 타입 및 구조를 검사하고 조작할
 
         * 초기화 과정 중에만 특정 메서드가 호출되도록 하는 것은 오류방지, 안정성을 높일 수 있다.
     
-        <span style="color:red"> Warning </span>
 
-           UObject는 절대로 New 연산자를 사용하면 안된다. UObject는 메모리가 알아서 관리되기에 수동으로 관리하면 메모리가 손상될 수 있다.
+        UObject는 절대로 New 연산자를 사용하면 안된다. UObject는 메모리가 알아서 관리되기에 수동으로 관리하면 메모리가 손상될 수 있다.
 
         https://docs.unrealengine.com/5.3/en-US/creating-objects-in-unreal-engine/
 
     - UObject가 제공하는 기능
 
-        1. Garbage collection
+        - Garbage collection
 
             메모리 관리 자동화
 
-        2. Reference updating
+        - Reference updating
 
             참조변경시 자동으로 해당 참조로 업데이트, 참조된 객체가 소멸시 해당 참조를 NULL로 설정
 
-        3. Reflection
+        - Reflection
 
             런타임에 객체에 접근할 수 있는 기능
 
-        4. Serialization(직렬화)
+        - Serialization(직렬화)
 
             데이터를 바이트 스트림으로 변환하는 과정이다. 게임 상태 저장, 네트워크 통신, 암호화, 버전 관리 용이하다.
 
@@ -96,17 +95,17 @@ Reflection System : 런타임 중에 타입 및 구조를 검사하고 조작할
 
             객체의 상태를 저장하고 전송하는데 사용
 
-        5. Automatic updating of default property changes
-        6. Automatic property initialization
-        7. Automatic editor integration
+        - Automatic updating of default property changes
+        - Automatic property initialization
+        - Automatic editor integration
 
             문자그대로 자동으로 기본 property 변화, property 초기화, 에디터 통합이 이루어진다.
 
-        8. Type information available at runtime
+        - Type information available at runtime
 
             런타임에 타입 정보 사용가능
 
-        9. Network replication
+        - Network replication
 
             멀티플레이어 게임에서 객체의 상태를 네트워크 상에서 동기화, 여러 플레이어가 동일한 게임 상태 공유가능
 
@@ -140,8 +139,6 @@ Reflection System : 런타임 중에 타입 및 구조를 검사하고 조작할
         `MYPROJECT_API` 클래스를 다른 모듈에 노출시키기 위해 지정해야한다.
 
         `GENERATED_BODY()` 매크로는 실행인자를 사용하지 않고 엔진에 필요한 인프라를 지원하기 위해 클래스를 구성한다.
-
-        <span style="color:red"> Warning </span>
 
         UCLASS의 일부를 커스텀`#ifdefs`매크로로 래핑할 때 UHT는 `WITH_EDITOR` or `WITHEDITORONLY_DATA`매크로를 포함하지 않는 매크로를 무시한다.
 
