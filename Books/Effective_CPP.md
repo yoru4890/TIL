@@ -411,3 +411,12 @@ private 상속은 "is-implemented-in-terms-of"이다.
 private 상속은 protected 멤버에 접근 또는 상속받은 가상함수를 재정의해야 할경우, 공백 기본 클래스 최적화(EBO : Empty Base Optimization)를 활성가능
 
 </details>
+
+<details>
+<summary>항목 40 : 다중 상속은 심사숙고해서 사용하자</summary>
+
+다중 상속은 단일 상속보다 복잡하고, 모호성 문제가 생길 수 있고 가상 상속이 필요해질수 있다.(가상 상속은 비용이 크다)
+
+다중상속의 좋은 예 : 인터페이스 클래스로부터 public 상속, 구현을 돕는 클래스로부터 private 상속
+
+</details>
