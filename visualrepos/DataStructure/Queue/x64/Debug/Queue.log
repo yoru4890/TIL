@@ -1,3 +1,0 @@
-﻿  main.cpp
-C:\Users\yoru\source\repos\DataStructure\Queue\main.cpp(104,4): warning C4102: 'dafault': 참조되지 않은 레이블입니다.
-  Queue.vcxproj -> C:\Users\yoru\source\repos\DataStructure\x64\Debug\Queue.exe
