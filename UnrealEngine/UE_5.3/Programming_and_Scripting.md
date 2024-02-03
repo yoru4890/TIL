@@ -6,6 +6,7 @@
 - Unreal Engine Reflection System
     - Objects
     - Interfaces
+    - Properties
 
 </details>
 
@@ -263,3 +264,94 @@ Reflection System : 런타임 중에 타입 및 구조를 검사하고 조작할
         `BlueprintCallable`는 호출할 수 있지만 오버라이드할 수 없다.
 
         다른 모든 함수는 블루프린트에서 접근할 수 없다.
+
+- Properties
+
+    - 프로퍼티 선언
+
+        C++ 변수위에 UPROPERTY 매크로에 프로퍼티 메타데이터와 변수 지정자를 붙여 선언
+
+    - 코어 데이터 유형
+        - Integers
+            `int` or `uint` 뒤에 크기를 비트 단위로 붙임
+
+            - As Bitmasks
+                인티저 프로퍼티는 에디터에 비트마스크로 노출가능
+
+                메타 섹션에 bitmask추가하면 된다.
+
+                ```cpp
+                UPROPERTY(EditAnywhere, Meta = (Bitmask))
+                int32 BasicBits;
+                ```
+
+                인티저는 개별적으로 플래그 목록으로 표시되서 켜고 끌 수 있다.
+
+                블루프린트에서 호출 가능한 함수로 만들려면 UPARAM 지정자에 추가하여 동작가능하다.
+
+                ```cpp
+                UFUNCTION(BlueprintCallable)
+                void MyFunction(UPARAM(meta=(Bitmask)) int32 BasicBitsParam)
+                ```
+
+                이름을 바꿔서 사용하는 경우, UENEUM을 사용한다.
+
+                ```cpp
+                UENUM(Meta = (Bitflags))
+                enum class EColorBits
+                {
+                    ECB_Red,
+                    ECB_Green,
+                    ECB_Blue
+                };
+                ```
+
+                값의 범위는 0~31
+
+                또는 ENUM_CLASS_FLAGS를 사용해서 비트마스크로 변환할 수 도 있다.
+
+                ```cpp
+                UENUM(Meta = (Bitflags, UseEnumValuesAsMaskValuesInEditor = "true"))
+                enum class EColorBits
+                {
+                    ECB_Red = 0x01,
+                    ECB_Green = 0x02,
+                    ECB_Blue = 0x04
+                };
+
+                ENUM_CLASS_FLAGS(EColorBits);
+                ```
+
+                이 방법의 주요 차이점은 비트 번호 대신 마스크 값 자체를 사용한다.
+
+                이후 BitmaskEnum 메타 태그로 참조가능
+
+                ```cpp
+                UPROPERTY(EditAnywhere, Meta = (Bitmask, BitmaskEnum = "EColorBits"))
+                int32 ColorFlags;
+                ```
+
+        - 부동 소수점 유형
+            float, double 사용
+
+        - Boolean Types
+            bool or 비트필드로 나타낼 수 있다.
+
+        - Strings
+
+            FString : char 동적배열
+
+            FName : 전역 문자열 테이블에서 변경불능 대소문자 구분없는 String의 참조, FString보다 작아 전송효율적이나 조작어렵다.
+
+            FText : 현지화 처리를 위해 고안된 string 표현
+
+        대부분의 경우, TCHAR 을 사용하고 TEXT() 매크로는 TCHAR 리터럴을 나타내는 데 사용할 수 있다.
+
+        https://docs.unrealengine.com/5.3/en-US/string-handling-in-unreal-engine/
+
+    - 프로퍼티 지정자
+
+    https://docs.unrealengine.com/5.3/en-US/unreal-engine-uproperties/
+
+
+
