@@ -353,5 +353,31 @@ Reflection System : 런타임 중에 타입 및 구조를 검사하고 조작할
 
     https://docs.unrealengine.com/5.3/en-US/unreal-engine-uproperties/
 
+- Structs
+    - UStruct 구현
 
+        ```cpp
+        USTRUCT([Specifier, Specifier, ...])
+        struct FStructName
+        {
+            GENERATED_BODY()
+        };
+        ```
 
+    - 구조체 지정자
+
+        https://docs.unrealengine.com/5.3/en-US/structs-in-unreal-engine/
+
+    - 모범 사례 및 팁
+
+        - UStruct 는 가비지 컬렉션이 UObject를 제거하지 않도록 하기 위해 언리얼 엔진의 스마트 포인터 및 가비지 컬렉션 시스템을 사용할 수 있다.
+
+        - 구조체는 간단한 타입에 적합하다. 복잡한 경우 UObject or AActor 서브클래스를 만드는 것이 좋다.
+
+        - USructs 는 리플리케이션용으로 간주되지 않고, UProperty 는 리플리케이션용으로 간주 된다. (리플리케이션 : 네트워크를 통해 여러 플레이어 간에 정보를 동기화하는 과정)
+
+        - 구조체를 위한 생성 및 소멸 함수 자동 생성 기능이 있다.
+
+            - BlueprintType 태그로 아무 UStruct 를 표시.
+            - UStruct에 하나 이상의 BlueprintReadOnly or BlueprintReadWrite 프로퍼티가 있다면 소멸이 표시.
+            - 소멸이 생성한 순수 노드는 BlueprintReadOnly or BlueprintReadWrite 로 태그된 각 프로퍼티에 출력 핀을 하나씩 제공.
