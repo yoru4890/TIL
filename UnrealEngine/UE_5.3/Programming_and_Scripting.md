@@ -381,3 +381,37 @@ Reflection System : 런타임 중에 타입 및 구조를 검사하고 조작할
             - BlueprintType 태그로 아무 UStruct 를 표시.
             - UStruct에 하나 이상의 BlueprintReadOnly or BlueprintReadWrite 프로퍼티가 있다면 소멸이 표시.
             - 소멸이 생성한 순수 노드는 BlueprintReadOnly or BlueprintReadWrite 로 태그된 각 프로퍼티에 출력 핀을 하나씩 제공.
+
+- TSubclassOf
+
+    UClass 유형의 안전성을 보장해 주는 템플릿 클래스
+
+    ```cpp
+    UPROPERTY(EditDefaultsOnly, Category=Damage)
+    UClass* DamageType;
+    ```
+
+    ```cpp
+    UPROPERTY(EditDefaultsOnly, Category=Damage)
+    TSubclassOf<UDamageType> DamageType;
+    ```
+
+    위의 경우는 에디터에서 UClass 아무거나 선택할 수 있고,
+
+    아래의 경우는 UDamageType 파생 클래스만 선택할 수 있다.
+
+    C++ 수준에서의 타입 안전성도 확보할 수 있다. 비호환 TSubclassOf 타입을 서로에게 할당하려는 순간, 컴파일 오류가 난다.
+
+    만약 UClass를 할당하려는 경우, 런타임에서 확인하고 결과값은 nullptr.
+
+    ```cpp
+    UClass* ClassA = UDamageType::StaticClass();
+
+    TSubclassOf<UDamageType> ClassB;
+
+    ClassB = ClassA; // Performs a runtime check
+
+    TSubclassOf<UDamageType_Lava> ClassC;
+
+    ClassB = ClassC; // Performs a compile time check
+    ```
