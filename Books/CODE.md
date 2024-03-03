@@ -29,3 +29,19 @@
 전기회로와 이진부호의 유사성
 
 </details>
+
+<details>
+<summary>Chapter 5 가까운 거리에서 이야기하기</summary>
+
+전신 시스템
+
+</details>
+
+<details>
+<summary>Chapter 6 논리와 스위치</summary>
+
+불 대수
+
+AND, OR 논리 연산
+
+</details>
