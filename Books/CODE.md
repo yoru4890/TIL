@@ -45,3 +45,17 @@
 AND, OR 논리 연산
 
 </details>
+
+<details>
+<summary>Chapter 7 전신과 릴레이</summary>
+
+중계기 ( 릴레이 )
+
+</details>
+
+<details>
+<summary>Chapter 8 릴레이와 논리 게이트</summary>
+
+AND, OR, NAND, NOR 논리 게이트
+
+</details>
