@@ -59,3 +59,10 @@ AND, OR 논리 연산
 AND, OR, NAND, NOR 논리 게이트
 
 </details>
+
+<details>
+<summary>Chapter 9 우리가 사용하는 열 개의 숫자들</summary>
+
+십진수
+
+</details>
