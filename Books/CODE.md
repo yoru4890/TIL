@@ -66,3 +66,10 @@ AND, OR, NAND, NOR 논리 게이트
 십진수
 
 </details>
+
+<details>
+<summary>Chapter 10 십진수 이외의 것</summary>
+
+여러진수, 2진수
+
+</details>
