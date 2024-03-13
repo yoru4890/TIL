@@ -73,3 +73,10 @@ AND, OR, NAND, NOR 논리 게이트
 여러진수, 2진수
 
 </details>
+
+<details>
+<summary>Chapter 11 비트, 비트, 비트</summary>
+
+생활속에 담겨있는 비트
+
+</details>
