@@ -80,3 +80,10 @@ AND, OR, NAND, NOR 논리 게이트
 생활속에 담겨있는 비트
 
 </details>
+
+<details>
+<summary>Chapter 12 바이트와 16진수</summary>
+
+바이트의 등장이전에는 3비트씩 8진수로 컴퓨터를 다루었었다. 이후에 8비트, 바이트가 등장하고 16진수로 사용했다. 
+
+</details>
