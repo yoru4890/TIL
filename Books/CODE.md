@@ -87,3 +87,13 @@ AND, OR, NAND, NOR 논리 게이트
 바이트의 등장이전에는 3비트씩 8진수로 컴퓨터를 다루었었다. 이후에 8비트, 바이트가 등장하고 16진수로 사용했다. 
 
 </details>
+
+<details>
+<summary>Chapter 13 ASCII에서 유니코드까지</summary>
+
+7비트 ASCII, 영어 이외의 문자를 위한 유니코드
+
+유니코드 인코딩방식이 있다.
+UTF-8,16,32
+
+</details>
