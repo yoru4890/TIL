@@ -97,3 +97,16 @@ AND, OR, NAND, NOR 논리 게이트
 UTF-8,16,32
 
 </details>
+
+<details>
+<summary>Chapter 14 논리 게이트로 덧셈하기</summary>
+
+OR, NAND 를 합친 XOR
+
+XOR, AND를 합친 반가산기
+
+반가산기 2개와 OR를 합친 전가산기
+
+이진수 덧셈을 표현할 수 있다.
+
+</details>
