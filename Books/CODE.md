@@ -110,3 +110,11 @@ XOR, AND를 합친 반가산기
 이진수 덧셈을 표현할 수 있다.
 
 </details>
+
+<details>
+<summary>Chapter 15 실제로도 그럴까?</summary>
+
+릴레이-> 진공관 -> 트랜지스터로 발전해왔다.
+
+
+</details>
