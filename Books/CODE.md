@@ -116,5 +116,13 @@ XOR, AND를 합친 반가산기
 
 릴레이-> 진공관 -> 트랜지스터로 발전해왔다.
 
+</details>
+
+<details>
+<summary>Chapter 16 그렇다면 뺄셈은 어떨까요?</summary>
+
+뺄셈은 보수를 이용해서 계산한다.
+
+오버플로우현상
 
 </details>
