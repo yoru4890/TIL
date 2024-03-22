@@ -128,7 +128,7 @@ XOR, AND를 합친 반가산기
 </details>
 
 <details>
-<summary>Chapter 17 피드백과 플립플롭summary>
+<summary>Chapter 17 피드백과 플립플롭<summary>
 
 오실레이터 : 0과 1이 계속 바뀌는 회로
 
@@ -136,5 +136,15 @@ XOR, AND를 합친 반가산기
 
 플립플롭 : 두 스위치가 있을때, 두개 열려있는 상태가 그 전상태를 기억해서 전구가 밝혀질때와 꺼질때가 있는 회로
 정보를 기억해 둘 수 있다.
+
+</details>
+
+<details>
+<summary>Chapter 18 시계를 만들어 봅시다<summary>
+
+이진수4자리를 활용해 십진수표현하는 BCD
+플립플롯을 활용해 0~9, 0~5 표현, 24시 12시 두가지 경우의 변화차이
+디코더와 BCD를 결합한 BCD디코더
+숫자의형태를 표현하는 다이오드 매트릭스
 
 </details>
