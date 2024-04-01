@@ -1,8 +1,10 @@
 # 목차
 
-- [Compoent 붙이기](#component-붙이기)
+- [Component 붙이기](#component-붙이기)
 
-- [Compoent 설정접근](#component-설정접근)
+- [Component 설정접근](#component-설정접근)
+
+- [Root Component 설정](#root-component-설정)
 
 ## Component 붙이기
 
@@ -34,4 +36,13 @@
 
 	bUseControllerRotationYaw = true;
 
+```
+
+## Root Component 설정
+
+```cpp
+	collisionComp = CreateDefaultSubobject<USphereComponent>(TEXT("CollisionComp"));
+	collisionComp->SetCollisionProfileName(TEXT("BlockAll"));
+	collisionComp->SetSphereRadius(13);
+	RootComponent = collisionComp;
 ```
