@@ -189,3 +189,13 @@ XOR, AND를 합친 반가산기
 소프트웨어 : 메모리에 저장된 명령어 코드, 데이터
 
 </details>
+
+<details>
+<summary>Chapter 21 산술 논리 장치<summary>
+
+CPU의 중요한 구성요소 ALU(산술 논리 장치)
+
+자리올림 플래그, 제로 플래그, 부호 플래그
+
+
+</details>
