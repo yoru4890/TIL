@@ -87,3 +87,76 @@ void UEnemyFSM::IdleState()
 	}
 }
 ```
+
+```cpp
+void UEnemyFSM::BeginPlay()
+{
+	Super::BeginPlay();
+
+	auto actor{ UGameplayStatics::GetActorOfClass(GetWorld(), ATPSPlayer::StaticClass()) };
+	mpTarget = Cast<ATPSPlayer>(actor);
+	mpMe = Cast<AEnemy>(GetOwner());
+}
+```
+
+```cpp
+void UEnemyFSM::MoveState()
+{
+	FVector destination{ mpTarget->GetActorLocation() };
+	FVector dir{ destination - mpMe->GetActorLocation() };
+	mpMe->AddMovementInput(dir.GetSafeNormal());
+
+	if (dir.Size() < mAttackRange)
+	{
+		mState = EEnemyState::Attack;
+	}
+}
+```
+
+```cpp
+void UEnemyFSM::AttackState()
+{
+	mCurrentTime += GetWorld()->DeltaTimeSeconds;
+
+	if (mCurrentTime > mAttackDelayTime)
+	{
+		PRINT_LOG(TEXT("Attack!!!!!"));
+
+		mCurrentTime = 0;
+	}
+
+	float distance{ FVector::Distance(mpTarget->GetActorLocation(), mpMe->GetActorLocation()) };
+
+	if (distance > mAttackRange)
+	{
+		mState = EEnemyState::Move;
+	}
+
+}
+```
+
+```cpp
+// Player가 Linetrace로 때리는 상황
+auto enemy = hitInfo.GetActor()->GetDefaultSubobjectByName(TEXT("FSM"));
+if (enemy)
+{
+	auto enemyFSM = Cast<UEnemyFSM>(enemy);
+	enemyFSM->OnDamageProcess();
+}
+```
+
+```cpp
+void UEnemyFSM::OnDamageProcess()
+{
+	--mHP;
+
+	if (mHP > 0)
+	{
+		mState = EEnemyState::Damage;
+	}
+	else
+	{
+		mState = EEnemyState::Die;
+	}
+}
+```

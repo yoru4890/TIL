@@ -30,3 +30,13 @@ if (bHit)
 	}
 }
 ```
+
+```cpp
+// GetDefaultSubobjectByName의 반환값은 UObject 따라서 Cast를 해줘야한다.
+auto enemy = hitInfo.GetActor()->GetDefaultSubobjectByName(TEXT("FSM"));
+if (enemy)
+{
+	auto enemyFSM = Cast<UEnemyFSM>(enemy);
+	enemyFSM->OnDamageProcess();
+}
+```
