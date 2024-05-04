@@ -199,3 +199,21 @@ CPU의 중요한 구성요소 ALU(산술 논리 장치)
 
 
 </details>
+
+<details>
+<summary>Chapter 22 레지스터와 버스<summary>
+
+7개의 8비트 래치 -> 레지스터(CPU 명령 직접제어) : ALU 처리 바이트 저장
+
+A(누산 레지스터) B C D E H(high) L(low)
+
+간접 주소 지정 방식(Indirect Addressing) : 두 개 이상의 메모리 주소를 이용해서 간접적으로 접근
+
+니모닉 (mnemonics) : 하나의 기억법 , 길게 풀어 쓴 동작의 약어 (Ex. ADD, XRA)
+
+어셈블리어 명령 (Ex. ADD E, XRA M)
+
+10FFFSSS : FFF(산술논리기능), SSS(어떤 레지스터, 메모리)
+
+
+</details>
