@@ -215,5 +215,12 @@ A(누산 레지스터) B C D E H(high) L(low)
 
 10FFFSSS : FFF(산술논리기능), SSS(어떤 레지스터, 메모리)
 
+즉치 이동(Move Immediate 명령) : MVI
+
+MOV 명령 비트 구성 01DDDSSS : DDD(목적레지스터), SSS(소스레지스터)
+
+레지스터 어레이
+
+입출력사이의 연결 : 데이터 버스
 
 </details>
