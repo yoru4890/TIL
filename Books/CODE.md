@@ -254,3 +254,18 @@ MOV 명령 비트 구성 01DDDSSS : DDD(목적레지스터), SSS(소스레지스
 기본동작 명령실행 -> 메모리에서 데이터를 가져와서 계산 -> 메모리 저장
 
 </details>
+
+<details>
+<summary>Chapter 25 주변장치들<summary>
+
+화면표시 픽셀
+
+키보드 입력방식 인터럽트
+
+비트맵 압축 run-length encoding, GIF, PNG...
+
+스피커 CD PCM(pulse Code Modulation)
+
+대용량저장장치 섹터
+
+</details>
