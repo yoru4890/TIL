@@ -269,3 +269,18 @@ MOV 명령 비트 구성 01DDDSSS : DDD(목적레지스터), SSS(소스레지스
 대용량저장장치 섹터
 
 </details>
+
+<details>
+<summary>Chapter 26 운영체제<summary>
+
+소프트웨어 필요
+
+핸들러, 명령어 처리기
+
+파일이름 + 파일 형식
+
+장치 독립성
+
+운영체제가 제공하는 서브루틴의 집합 API
+
+</details>
