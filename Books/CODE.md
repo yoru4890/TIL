@@ -284,3 +284,12 @@ MOV 명령 비트 구성 01DDDSSS : DDD(목적레지스터), SSS(소스레지스
 운영체제가 제공하는 서브루틴의 집합 API
 
 </details>
+
+<details>
+<summary>Chapter 27 코딩<summary>
+
+기계어, 어셈블리어, 고수준 프로그래밍언어
+C언어와 파생된언어
+부동소수점 문제
+
+</details>
