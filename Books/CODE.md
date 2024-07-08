@@ -293,3 +293,12 @@ C언어와 파생된언어
 부동소수점 문제
 
 </details>
+
+<details>
+<summary>Chapter 28 월드 브레인<summary>
+
+서버와 클라이언트
+
+인터넷
+
+</details>
