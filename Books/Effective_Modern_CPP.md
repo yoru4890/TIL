@@ -135,3 +135,40 @@ int x4{27} // 2014에서 int로 되게 고쳐짐
 함수 반환타입이나 람다 매개변수에 쓰인 auto는 템플릿 타입추론 규칙이 적용
 
 </details>
+
+<details>
+<summary>항목 3 : decltype의 작동 방식을 숙지하라</summary>
+
+`decltype(expresion)`
+
+함수 반환타입이 매개변수 타입들에 의존하는 함수 템플릿을 선언할 때 주로 쓰임.
+
+```cpp
+template<typename Container, typename Index>
+decltype(auto) authAndAccess(Container&& c, Index i)
+{
+    authenticateUser();
+    return std::forward<Container>(c)[i];
+}
+```
+
+- decltype(auto)인 이유 : index타입인 경우 왼값 참조 타입이여야하는데 auto인경우 그냥 타입으로 된다.
+- std::forward<Container> : 오른값도 받아들일 수 있도록 했다.
+
+괄호 하나 차이로 바뀔 수 있으므로 decltype(auto)는 주의깊게 사용하자
+
+```cpp
+decltype(auto) f1()
+{
+    int x = 0;
+    return x;   // int
+}
+
+decltype(auto) f2()
+{
+    int x = 0;
+    return (x); // int&
+}
+```
+
+</details>
