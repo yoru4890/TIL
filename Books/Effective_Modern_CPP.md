@@ -172,3 +172,11 @@ decltype(auto) f2()
 ```
 
 </details>
+
+<details>
+<summary>항목 4 : 연역된 형식을 파악하는 방법을 알아두라</summary>
+
+컴파일러가 추론하는 타입을 IDE를 통해 파악하지만, 정확하지 않을 수 있기에 C++의 타입추론규칙들을 제대로 이해하자.
+
+
+</details>
