@@ -193,3 +193,17 @@ auto는 형식 불일치가 발생하는 경우가 거의 없다. 타입추론�
 
 
 </details>
+
+<details>
+<summary>항목 6 : auto가 원치 않은 형식으로 연역될 때에는 명시적 형식의 초기치를 사용하라</summary>
+
+```cpp
+double f();
+
+auto a = static_cast<float>(f());
+```
+auto를 사용할때 대리자(proxy) 형식때문에 타입이 잘못 추론된다.
+
+static_cast<>로 직접 타입을 바꿔주자.
+
+</details>
