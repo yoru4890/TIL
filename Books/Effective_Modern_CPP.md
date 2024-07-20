@@ -207,3 +207,16 @@ auto를 사용할때 대리자(proxy) 형식때문에 타입이 잘못 추론된
 static_cast<>로 직접 타입을 바꿔주자.
 
 </details>
+
+</details>
+
+<details>
+<summary>항목 7 : 객체 생성시 괄호(())와 중괄호({})를 구분하라</summary>
+
+중괄호 초기화시에는 std::initializer_list 를 생각해야한다.
+
+예시 std::vector에서 괄호와 중괄호 선택의미가 차이가 있다.
+
+템플릿안에서도 괄호와 중괄호의 차이를 유의하자.
+
+</details>
