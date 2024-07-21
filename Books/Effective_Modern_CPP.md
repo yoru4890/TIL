@@ -220,3 +220,13 @@ static_cast<>로 직접 타입을 바꿔주자.
 템플릿안에서도 괄호와 중괄호의 차이를 유의하자.
 
 </details>
+
+<details>
+<summary>항목 8 : 0 과 NULL보다 nullptr를 선호하라</summary>
+
+pointer에 대한 건 nullptr로 확실하게 표현
+
+정수 형식과 포인터 형식에 대한 오버로딩 조심
+
+
+</details>
