@@ -230,3 +230,15 @@ pointer에 대한 건 nullptr로 확실하게 표현
 
 
 </details>
+
+<details>
+<summary>항목 9 : typedef보다 별칭 선언을 선호하라</summary>
+
+typdef보다는 using을 쓰자
+
+템플릿에서 차이가 생긴다.
+
+C++14에서 별칭 템플릿 제공 (type trait)
+
+
+</details>
