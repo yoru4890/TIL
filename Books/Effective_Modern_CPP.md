@@ -242,3 +242,14 @@ C++14에서 별칭 템플릿 제공 (type trait)
 
 
 </details>
+
+<details>
+<summary>항목 10 : 범위 없는 enum보다 범위 있는 enum을 선호하라</summary>
+
+범위 있는 enum을 사용하자.
+
+기본 바탕형식이 있다.
+
+전방선언 가능 ( 범위 없는 enum은 바탕형식 필요)
+
+</details>
