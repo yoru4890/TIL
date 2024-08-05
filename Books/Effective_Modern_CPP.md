@@ -271,3 +271,12 @@ C++14에서 별칭 템플릿 제공 (type trait)
 멤버함수 참조 한정사를 이용하면 멤버 함수가 호출되는 객체의 왼값버전과 오른값버전을 다른 방식으로 처리가능
 
 </details>
+
+<details>
+<summary>항목 13 : iterator 보다 const_iterator를 선호하라</summary>
+
+iterator보다 const_iterator를 선호하라
+
+최대한 일반적인 코드에서는 begin, end, rbegin 등의 비멤버 버전들을 해당 멤버 함수들보다 선호하라.
+
+</details>
