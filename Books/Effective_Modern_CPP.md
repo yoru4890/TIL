@@ -280,3 +280,14 @@ iterator보다 const_iterator를 선호하라
 최대한 일반적인 코드에서는 begin, end, rbegin 등의 비멤버 버전들을 해당 멤버 함수들보다 선호하라.
 
 </details>
+
+<details>
+<summary>항목 14 : 예외를 방출하지 않을 함수는 noexcept로 선언하라</summary>
+
+noexcept 함수는 비noexcept함수보다 최적화의 여지가 크다.
+
+noexcept는 이동 연산들과 swap, 메모리 해제 함수들, 그리고 소멸자들에 특히나 유용하다.
+
+대부분의 함수는 noexcept가 아니라 예외에 중립적이다.
+
+</details>
