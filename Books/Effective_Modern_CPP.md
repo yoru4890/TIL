@@ -291,3 +291,16 @@ noexcept는 이동 연산들과 swap, 메모리 해제 함수들, 그리고 소�
 대부분의 함수는 noexcept가 아니라 예외에 중립적이다.
 
 </details>
+
+<details>
+<summary>항목 15 : 가능하면 항상 constexpr을 사용하라</summary>
+
+constexpr 객체는 const이며, 컴파일 도중에 알려지는 값들로 초기화된다.
+
+constexpr 함수는 그 값이 컴파일 도중에 알려지는 인수들로 호출하는 경우에는 컴파일 시점 결과를 산출한다.
+
+constexpr 객체나 함수는 비constexpr 객체나 함수보다 광범위한 문맥에서 사용할 수 있다.
+
+constexpr은 객체나 함수의 인터페이스의 일부이다.
+
+</details>
