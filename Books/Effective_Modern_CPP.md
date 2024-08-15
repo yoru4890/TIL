@@ -341,3 +341,16 @@ std::unique_ptr는 독점 소유권 의미론을 가진 자원의  관리를 위
 std::unique_ptr를 std::shared_ptr로 손쉽게 변환할 수 있다.
 
 </details>
+
+<details>
+<summary>항목 19 : 소유권 공유 자원의 관리에는 std::shared_ptr를 사용하라</summary>
+
+std::shared_ptr는 임의의 공유 자원의 수명을 편리하게 (쓰레기 수거에 맡길 때만큼이나) 관리할 수 있는 수단을 제공한다.
+
+대체로 std::shared_ptr 객체는 그 크기가 std::unique_ptr 객체의 두 배이며, 제어 블록에 관련된 추가 부담을 유발하며, 원자적 참조 횟수 조작을 요구한다.
+
+자원은 기본적으로 delete를 통해 파괴되나, 커스텀 삭제자도 지원된다. 삭제자의 형식은 std::shared_ptr의 형식에 아무런 영향도 미치지 않는다.
+
+생 포인터 형식의 변수로부터 std::shared_ptr를 생성하는 일은 피해야 한다.
+
+</details>
