@@ -354,3 +354,12 @@ std::shared_ptr는 임의의 공유 자원의 수명을 편리하게 (쓰레기 
 생 포인터 형식의 변수로부터 std::shared_ptr를 생성하는 일은 피해야 한다.
 
 </details>
+
+<details>
+<summary>항목 20 : std::shared_ptr처럼 작동하되 대상을 잃을 수도 있는 포인터가 필요하면 std::weak_ptr를 사용하라</summary>
+
+std::shared_ptr처럼 작동하되 대상을 잃을 수도 있는 포인터가 필요하면 std::weak_ptr를 사용하라
+
+std::weak_ptr의 잠재적인 용도로는 캐싱, 관찰자 목록, 그리고 std::shared_ptr 순환 고리방지가 있다.
+
+</details>
