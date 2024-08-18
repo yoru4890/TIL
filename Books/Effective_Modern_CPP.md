@@ -363,3 +363,15 @@ std::shared_ptr처럼 작동하되 대상을 잃을 수도 있는 포인터가 �
 std::weak_ptr의 잠재적인 용도로는 캐싱, 관찰자 목록, 그리고 std::shared_ptr 순환 고리방지가 있다.
 
 </details>
+
+
+<details>
+<summary>항목 21 : new를 직접 사용하는 것보다 std::make_unique와 std::make_shared를 선호하라</summary>
+
+new를 사용하는 것보다 make 함수를 사용하면 소스코드 중복이 없어지고 예외 안전성도 올라간다.
+
+make함수를 사용할 수 없는 경우 커스텀 삭제자를 지정하거나 중괄호 초기치를 전달해야 할 수 있다.
+
+std::shared_ptr에 대해서는 make 함수가 부적합한 경우가 더 있는데, 커스텀 메모리 관리 기능을 가진 클래스를 다루어야 하는 경우, 메모리가 넉넉하지 않은 시스템에서 큭 객체를 자주 다루고 std::weak_ptr들이 해당 std::shared_ptr들보다 더 오래 살아남는 경우.
+
+</details>
