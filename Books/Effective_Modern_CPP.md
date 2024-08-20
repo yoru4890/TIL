@@ -386,3 +386,14 @@ std::unique_ptr 형식의 pImpl 포인터를 사용할 때에는 특수 멤버 �
 std::unique_ptr에 적용될 뿐, std::shared_ptr에는 적용되지 않는다.
 
 </details>
+
+<details>
+<summary>항목 23 : std::move와 std::forward를 숙지하라</summary>
+
+std::move는 오른값으로의 무조건 캐스팅 수행. std::move 자체는 아무것도 이동하지 않는다.
+
+std::forward는 주어진 인수가 오른값에 묶인 경우에만 그것을 오른값으로 캐스팅한다.
+
+std::move와 std::forward 둘 다, 실행시점에서는 아무 일도 하지 않는다.
+
+</details>
