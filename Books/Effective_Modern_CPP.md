@@ -409,3 +409,14 @@ std::move와 std::forward 둘 다, 실행시점에서는 아무 일도 하지 �
 
 
 </details>
+
+<details>
+<summary>항목 25 : 오른값 참조에는 std::move를, 보편 참조에는 std::forward를 사용하라</summary>
+
+오른값 참조나 보편 참조가 마지막으로 쓰이는 지점에서, 오른값 참조에는 std::move를 보편 참조에는 std::forward를 적용하라.
+
+결과를 값 전달 방식으로 돌려주는 함수가 오른값 참조나 보편 참조를 돌려줄때에도 각각 std::move나 std::forward를 적용하라.
+
+반환값 최적화의 대상이 될 수 있는 지역 객체에는 절대로 std::move나 std::forward를 적용하지 말아야 한다.
+
+</details>
